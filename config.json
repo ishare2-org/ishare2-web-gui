@@ -1,0 +1,18 @@
+{
+    "api": {
+        "host": "0.0.0.0",
+        "port": 5000
+    },
+    "credentials": {
+        "bin_sheet_id": 0,
+        "qemu_sheet_id": 647866092,
+        "dynamips_sheet_id": 1118397071,
+        "google_sheet_id": "2PACX-1vR-RCxKCkhzzW2ZDDQOUIAxq2QTPwcCJZXuFyGD0hvXDC60TMU0_Yx1fx02S1_H9h7ZU52X-hAVC37h"
+    },
+    "constants": {
+        "ishare2_version": "https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/version",
+        "changelog_md_file": "https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/CHANGELOG.md",
+        "changelog_gui_md_file": "https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/gui/CHANGELOG.md",
+        "help_md_file": "https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/HELP.md"
+    }
+}

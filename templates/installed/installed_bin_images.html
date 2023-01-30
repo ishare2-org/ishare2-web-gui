@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>ishare2 - installed bin images list</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+
+    <meta name="nofoobar.com" content="Nofoobar">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% block title %}
+    {% endblock %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="icon" href="{{ url_for('static', path='/images/favicon.ico') }}" sizes="32x32" />
+</head>
+
+<body>
+    {% include "navbar.html" %}
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    {% block scripts %}
+    {% endblock %}
+
+    <h1 align="center">Installed bin images</h1><br />
+    <table class="content-table" style="margin: 0px auto">
+        <thead>
+            {% if data|count == 0 %}
+            <p align="center">No bin images</p>
+            {% else %}
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+            </tr>
+            {% endif %}
+        </thead>
+        <tbody>
+            {% for value in data %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{value.name}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include 'footer.html' %}
+</body>
+
+</html>

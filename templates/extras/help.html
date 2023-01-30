@@ -1,0 +1,69 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ishare2 - help</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+
+    <meta name="nofoobar.com" content="Nofoobar">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% block title %}
+    {% endblock %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="icon" href="{{ url_for('static', path='/images/favicon.ico') }}" sizes="32x32" />
+</head>
+
+<body>
+    {% include "navbar.html" %}
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    {% block scripts %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+    <div id="mypost" style="width:800px; margin:0 auto;"></div>
+    <script>
+        fetch('{{data.url}}').then(response => response.text())
+            .then(data => {
+                var converter = new showdown.Converter();
+                var md = data;
+                var html = converter.makeHtml(md);
+                document.querySelector('#mypost').innerHTML = html;
+            });
+    </script>
+    <script type="text/javascript">
+        (function () {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.async = true;
+            script.src = "//telegram.im/widget-button/index.php?id=@PNETLab";
+            document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+    </script>
+    <div style="width:800px; margin:0 auto;">
+        <a href="https://t.me/PNETLab" target="_blank" class="telegramim_button telegramim_shadow telegramim_pulse"
+            style="font-size:17px;width:281px;background:#27A5E7;box-shadow:1px 1px 5px #27A5E7;color:#FFFFFF;border-radius:75px;"
+            title="">
+            <i></i>PNETLAB platform Group
+            <small>
+                <span class="telegramim_count" data-for="@PNETLab">
+                    ...
+                </span>
+                members
+            </small></a>
+    </div>
+    {% include 'footer.html' %}
+</body>
+
+</html>
