@@ -66,7 +66,6 @@ async def root(request: Request):
         "version": ishare2_version,
         "title": "Homepage - ishare2",
     }
-    # return data
     return templates.TemplateResponse("/pages/index.html", {"request": request, "data": data})
 
 
@@ -76,7 +75,6 @@ async def get_list_of_bin_images(request: Request):
         "title": "Bin images - ishare2",
         "command": get_bin_list()
     }
-    # return data
     return templates.TemplateResponse("pages/lists/bin_list.html", {"request": request, "data": data})
 
 
@@ -86,7 +84,6 @@ async def get_list_of_dynamips_images(request: Request):
         "title": "Dynamips images - ishare2",
         "command": get_dynamips_list()
     }
-    # return data
     return templates.TemplateResponse("pages/lists/dynamips_list.html", {"request": request, "data": data})
 
 
@@ -96,7 +93,6 @@ async def get_list_of_qemu_images(request: Request):
         "title": "Qemu images - ishare2",
         "command": get_qemu_list()
     }
-    # return data
     return templates.TemplateResponse("pages/lists/qemu_list.html", {"request": request, "data": data})
 
 
@@ -106,7 +102,6 @@ async def download_bin(id, request: Request):
         "title": "Download bin image - ishare2",
         "command": download_bin_image(id)
     }
-    # return data
     return templates.TemplateResponse("confirmation/after_download_bin.html", {"request": request, "data": data})
 
 
@@ -116,7 +111,6 @@ async def delete_bin(name, request: Request):
         "title": "Delete bin image - ishare2",
         "command": delete_bin_image(name)
     }
-    # return data
     return templates.TemplateResponse("confirmation/after_delete_bin.html", {"request": request, "data": data})
 
 
@@ -126,7 +120,6 @@ async def download_dynamips(id, request: Request):
         "title": "Download dynamips image - ishare2",
         "command": download_dynamips_image(id)
     }
-    # return data
     return templates.TemplateResponse("confirmation/after_download_dynamips.html", {"request": request, "data": data})
 
 
@@ -136,7 +129,6 @@ async def delete_dynamips(name, request: Request):
         "title": "Delete dynamips image - ishare2",
         "command": delete_dynamips_image(name)
     }
-    # return data
     return templates.TemplateResponse("confirmation/after_delete_dynamips.html", {"request": request, "data": data})
 
 
@@ -146,7 +138,6 @@ async def download_qemu(id, request: Request):
         "title": "Download qemu image - ishare2",
         "command": download_qemu_image(id)
     }
-    # return data
     return templates.TemplateResponse("confirmation/after_download_qemu.html", {"request": request, "data": data})
 
 
@@ -156,7 +147,6 @@ async def delete_qemu(foldername, request: Request):
         "title": "Delete qemu image - ishare2",
         "command": delete_qemu_image(foldername)
     }
-    # return data
     return templates.TemplateResponse("confirmation/after_delete_qemu.html", {"request": request, "data": data})
 
 
@@ -166,7 +156,6 @@ async def delete_docker(image_id, request: Request):
         "title": "Delete docker image - ishare2",
         "command": delete_docker_image(image_id)
     }
-    # return data
     return templates.TemplateResponse("confirmation/after_delete_docker.html", {"request": request, "data": data})
 
 
@@ -176,7 +165,6 @@ async def get_installed_bin(request: Request):
         "title": "Installed bin images - ishare2",
         "command": get_installed_bin_images()
     }
-    # return data
     return templates.TemplateResponse("components/utils/display_installed/installed_bin_images.html", {"request": request, "data": data})
 
 
@@ -186,7 +174,6 @@ async def get_installed_dynamips(request: Request):
         "title": "Installed dynamips images - ishare2",
         "command": get_installed_dynamips_images()
     }
-    # return data
     return templates.TemplateResponse("components/utils/display_installed/installed_dynamips_images.html", {"request": request, "data": data})
 
 
@@ -196,7 +183,6 @@ async def get_installed_qemu(request: Request):
         "title": "Installed qemu images - ishare2",
         "command": get_installed_qemu_images()
     }
-    # return data
     return templates.TemplateResponse("components/utils/display_installed/installed_qemu_images.html", {"request": request, "data": data})
 
 
@@ -206,7 +192,6 @@ async def get_installed_docker(request: Request):
         "title": "Installed docker images - ishare2",
         "command": get_installed_docker_images()
     }
-    # return data
     return templates.TemplateResponse("components/utils/display_installed/installed_docker_images.html", {"request": request, "data": data})
 
 
@@ -216,7 +201,6 @@ async def live_search_bin(q, request: Request):
         "title": "Live search bin images - ishare2",
         "command": live_search_bin_image(q)
     }
-    # return data
     return templates.TemplateResponse("live_search/live_search_bin.html", {"request": request, "data": data})
 
 
@@ -226,7 +210,6 @@ async def live_search_dynamips(q, request: Request):
         "title": "Live search dynamips images - ishare2",
         "command": live_search_dynamips_image(q)
     }
-    # return data
     return templates.TemplateResponse("live_search/live_search_dynamips.html", {"request": request, "data": data})
 
 
@@ -236,7 +219,6 @@ async def live_search_qemu(q, request: Request):
         "title": "Live search qemu images - ishare2",
         "command": live_search_qemu_image(q)
     }
-    # return data
     return templates.TemplateResponse("live_search/live_search_qemu.html", {"request": request, "data": data})
 
 
@@ -246,7 +228,6 @@ async def get_relicensed(request: Request):
         "title": "Relicense - ishare2",
         "command": relicense()
     }
-    # return data
     return templates.TemplateResponse("confirmation/after_relicense.html", {"request": request, "data": data})
 
 
@@ -256,7 +237,6 @@ async def get_changelog_file(request: Request):
         "title": "Changelog - ishare2",
         "command": get_changelog_content()
     }
-    # return data
     return templates.TemplateResponse("pages/changelog_ishare2.html", {"request": request, "data": data})
 
 
@@ -266,7 +246,6 @@ async def get_changelog_gui_file(request: Request):
         "title": "Changelog - ishare2",
         "command": get_changelog_gui_content()
     }
-    # return data
     return templates.TemplateResponse("pages/changelog.html", {"request": request, "data": data})
 
 
@@ -276,7 +255,6 @@ async def get_help_file(request: Request):
         "title": "Help - ishare2",
         "url": get_help_content()
     }
-    # return data
     return templates.TemplateResponse("pages/help.html", {"request": request, "data": data})
 
 
