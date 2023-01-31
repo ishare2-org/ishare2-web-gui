@@ -22,7 +22,7 @@
 
     <table class="content-table" style="margin: 0px auto">
         <thead>
-            {% for value in data.command %}
+            {% if data.command == [] %}
             <p align="center">No results</p>
             {% else %}
             <tr>
