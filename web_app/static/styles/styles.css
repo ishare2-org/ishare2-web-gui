@@ -219,3 +219,6 @@ footer {
   display: inline-block;
   vertical-align: top;
 }
+.bg-black {
+  background-color: #000;
+}
