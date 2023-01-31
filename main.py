@@ -100,7 +100,9 @@ async def get_list_of_qemu_images(request: Request):
 async def download_bin(id, request: Request):
     data = {
         "title": "Download bin image - ishare2",
-        "command": download_bin_image(id)
+        "command": download_bin_image(id),
+        "id": id,
+        "type": "bin"
     }
     return templates.TemplateResponse("confirmation/after_download_bin.html", {"request": request, "data": data})
 
@@ -109,7 +111,8 @@ async def download_bin(id, request: Request):
 async def delete_bin(name, request: Request):
     data = {
         "title": "Delete bin image - ishare2",
-        "command": delete_bin_image(name)
+        "command": delete_bin_image(name),
+        "name": name
     }
     return templates.TemplateResponse("confirmation/after_delete_bin.html", {"request": request, "data": data})
 
@@ -118,7 +121,9 @@ async def delete_bin(name, request: Request):
 async def download_dynamips(id, request: Request):
     data = {
         "title": "Download dynamips image - ishare2",
-        "command": download_dynamips_image(id)
+        "command": download_dynamips_image(id),
+        "id": id,
+        "type": "dynamips"
     }
     return templates.TemplateResponse("confirmation/after_download_dynamips.html", {"request": request, "data": data})
 
@@ -127,7 +132,8 @@ async def download_dynamips(id, request: Request):
 async def delete_dynamips(name, request: Request):
     data = {
         "title": "Delete dynamips image - ishare2",
-        "command": delete_dynamips_image(name)
+        "command": delete_dynamips_image(name),
+        "name": name
     }
     return templates.TemplateResponse("confirmation/after_delete_dynamips.html", {"request": request, "data": data})
 
@@ -136,7 +142,9 @@ async def delete_dynamips(name, request: Request):
 async def download_qemu(id, request: Request):
     data = {
         "title": "Download qemu image - ishare2",
-        "command": download_qemu_image(id)
+        "command": download_qemu_image(id),
+        "id": id,
+        "type": "qemu"
     }
     return templates.TemplateResponse("confirmation/after_download_qemu.html", {"request": request, "data": data})
 
@@ -145,7 +153,8 @@ async def download_qemu(id, request: Request):
 async def delete_qemu(foldername, request: Request):
     data = {
         "title": "Delete qemu image - ishare2",
-        "command": delete_qemu_image(foldername)
+        "command": delete_qemu_image(foldername),
+        "foldername": foldername
     }
     return templates.TemplateResponse("confirmation/after_delete_qemu.html", {"request": request, "data": data})
 
@@ -154,7 +163,8 @@ async def delete_qemu(foldername, request: Request):
 async def delete_docker(image_id, request: Request):
     data = {
         "title": "Delete docker image - ishare2",
-        "command": delete_docker_image(image_id)
+        "command": delete_docker_image(image_id),
+        "image_id": image_id
     }
     return templates.TemplateResponse("confirmation/after_delete_docker.html", {"request": request, "data": data})
 
@@ -163,7 +173,7 @@ async def delete_docker(image_id, request: Request):
 async def get_installed_bin(request: Request):
     data = {
         "title": "Installed bin images - ishare2",
-        "command": get_installed_bin_images()
+        "command": get_installed_bin_images(),
     }
     return templates.TemplateResponse("components/utils/display_installed/installed_bin_images.html", {"request": request, "data": data})
 
