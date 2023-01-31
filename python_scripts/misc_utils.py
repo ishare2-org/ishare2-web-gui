@@ -33,15 +33,11 @@ def get_credentials():
 
 
 def get_changelog_content():
-    return {
-        "url": get_credentials()["constants"]["changelog_md_file"]
-    }
+    return get_credentials()["constants"]["changelog_md_file"]
 
 
 def get_changelog_gui_content():
-    return {
-        "url": get_credentials()["constants"]["changelog_gui_md_file"]
-    }
+    return get_credentials()["constants"]["changelog_gui_md_file"]
 
 
 def get_help_content():
