@@ -9,15 +9,13 @@
     {% block content %}
     {% endblock %}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
     {% block scripts %}
     {% endblock %}
 
-    <h1 align="center">ishare2 GUI</h1>
+    <h1>ishare2 GUI</h1>
     <br /><br />
-    <!--<h1 align="center">List of actions</h1> -->
+    <!--<h1>List of actions</h1> -->
     <table class="content-table" style="margin: 0px auto">
         <thead>
             <tr>
@@ -71,7 +69,7 @@
         </tbody>
     </table>
     <br />
-    <p align="center">ishare2: {{ data.version }}</p>
+    <p>ishare2: {{ data.version }}</p>
     {% include 'components/footer.html' %}
 </body>
 
