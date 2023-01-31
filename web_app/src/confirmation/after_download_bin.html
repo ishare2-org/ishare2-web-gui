@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ishare2 - download status</title>
+    <link href="{{ url_for('styles', path='styles.css') }}" rel="stylesheet">
+
+    <meta name="nofoobar.com" content="Nofoobar">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% block title %}
+    {% endblock %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="icon" href="{{ url_for('images', path='/favicon.ico') }}" sizes="32x32" />
+</head>
+
+<body>
+    {% include "components/navbar.html" %}
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    {% block scripts %}
+    {% endblock %}
+
+    {% if data.status == 1 %}
+    <h1 align="center">Download status: OK</h1><br />
+    <h1 align="center">ID: {{data.id}}<br />{{data.type}} image<br />{{data.message}}</h1><br />
+    {% else %}
+    <h1 align="center" style="color: red;">Download status: FAIL</h1><br />
+    <h1 align="center" style="color: red;">ID: {{data.id}}<br />{{data.type}} image<br />{{data.message}}</h1><br />
+    {% endif %}
+    {% include 'components/footer.html' %}
+</body>
+
+</html>

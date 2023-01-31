@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ishare2</title>
+    <link href="{{ url_for('styles', path='styles.css') }}" rel="stylesheet">
+
+
+    <meta name="nofoobar.com" content="Nofoobar">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% block title %}
+    {% endblock %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="icon" href="{{ url_for('images', path='/favicon.ico') }}" sizes="32x32" />
+
+<body>
+    {% include "components/navbar.html" %}
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    {% block scripts %}
+    {% endblock %}
+
+    <h1 align="center">ishare2 GUI</h1>
+    <br /><br />
+    <!--<h1 align="center">List of actions</h1> -->
+    <table class="content-table" style="margin: 0px auto">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Description</th>
+                <th class="text-center">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="text-center">Download and delete images</td>
+                <td class="text-center" width="auto">
+                    <a href="/lists/bin" class="btn btn-primary btn-sm">BIN</a>
+                    <a href="/lists/dynamips" class="btn btn-primary btn-sm">DYNAMIPS</a>
+                    <a href="/lists/qemu" class="btn btn-primary btn-sm">QEMU</a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="text-center">Show installed images</td>
+                <td class="text-center" width="auto">
+                    <a href="/installed/bin" class="btn btn-primary btn-sm">BIN</a>
+                    <a href="/installed/dynamips" class="btn btn-primary btn-sm">DYNAMIPS</a>
+                    <a href="/installed/qemu" class="btn btn-primary btn-sm">QEMU</a>
+                    <a href="/installed/docker" class="btn btn-primary btn-sm">DOCKER</a>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="text-center">Relicense (iourc file)</td>
+                <td class="text-center" width="auto">
+                    <a href="/relicense" class="btn btn-primary btn-sm">RELICENSE</a>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="text-center">See changelogs</td>
+                <td class="text-center" width="auto">
+                    <a href="/changelogs/ishare2" class="btn btn-primary btn-sm">ishare2</a>
+                    <a href="/changelogs/gui" class="btn btn-primary btn-sm">GUI</a>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="text-center">Help</td>
+                <td class="text-center" width="auto">
+                    <a href="/help" class="btn btn-primary btn-sm">HELP</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <p align="center">ishare2: {{ data.version }}</p>
+    {% include 'components/footer.html' %}
+</body>
+
+</html>
