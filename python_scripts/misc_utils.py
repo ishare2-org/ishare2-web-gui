@@ -45,6 +45,4 @@ def get_changelog_gui_content():
 
 
 def get_help_content():
-    return {
-        "url": get_credentials()["constants"]["help_md_file"]
-    }
+    return get_credentials()["constants"]["help_md_file"]
