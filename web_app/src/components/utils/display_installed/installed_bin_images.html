@@ -16,8 +16,8 @@
     <h1>Installed bin images</h1>
     <table class="content-table" style="margin: 0px auto">
         <thead>
-            {% if data|count == 0 %}
-            <p align="center">No bin images</p>
+            {% if data.command|count == 0 %}
+            <p>No bin images installed.</p>
             {% else %}
             <tr>
                 <th>#</th>

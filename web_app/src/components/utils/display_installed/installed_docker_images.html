@@ -16,8 +16,8 @@
     <h1>Installed docker images</h1><br />
     <table class="content-table" style="margin: 0px auto">
         <thead>
-            {% if data|count == 0 %}
-            <p align="center">No docker images</p>
+            {% if data.command == [] %}
+            <p>No docker images</p>
             {% else %}
             <tr>
                 <th>#</th>

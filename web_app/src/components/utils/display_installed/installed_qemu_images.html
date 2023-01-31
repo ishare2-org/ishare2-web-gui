@@ -16,8 +16,8 @@
     <h1>Installed qemu images</h1><br />
     <table class="content-table" style="margin: 0px auto">
         <thead>
-            {% if data|count == 0 %}
-            <p align="center">No qemu images</p>
+            {% if data.command == [] %}
+            <p>No qemu images</p>
             {% else %}
             <tr>
                 <th>#</th>

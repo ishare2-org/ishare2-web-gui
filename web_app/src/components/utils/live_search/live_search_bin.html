@@ -22,7 +22,7 @@
 
     <table class="content-table" style="margin: 0px auto">
         <thead>
-            {% if data|count == 0 %}
+            {% for value in data.command %}
             <p align="center">No results</p>
             {% else %}
             <tr>

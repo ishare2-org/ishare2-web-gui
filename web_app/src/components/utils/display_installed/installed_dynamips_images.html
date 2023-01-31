@@ -16,8 +16,8 @@
     <h1>Installed dynamips images</h1><br />
     <table class="content-table" style="margin: 0px auto">
         <thead>
-            {% if data|count == 0 %}
-            <p align="center">No dynamips images</p>
+            {% if data.command|count == 0 %}
+            <p>No dynamips images installed.</p>
             {% else %}
             <tr>
                 <th>#</th>
