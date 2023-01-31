@@ -15,10 +15,10 @@
 
     {% if data.status == 1 %}
     <h1>Delete status: OK</h1><br />
-    <h1>Image ID: {{data.image_id}}<br />{{data.message}}</h1><br />
+    <h1>Image ID: {{data.image_id}}<br />{{data.command.message}}</h1><br />
     {% else %}
     <h1 style="color: red;">Delete status: FAIL</h1><br />
-    <h1 style="color: red;">Image ID: {{data.image_id}}<br />{{data.message}}</h1>
+    <h1 style="color: red;">Image ID: {{data.image_id}}<br />{{data.command.message}}</h1>
     <br />
     {% endif %}
     {% include 'components/footer.html' %}

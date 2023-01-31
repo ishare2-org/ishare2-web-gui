@@ -15,10 +15,10 @@
 
     {% if data.status == 1 %}
     <h1>Download status: OK</h1><br />
-    <h1>ID: {{data.id}}<br />{{data.type}} image<br />{{data.message}}</h1><br />
+    <h1>ID: {{data.id}}<br />{{data.type}} image<br />{{data.command.message}}</h1><br />
     {% else %}
     <h1 style="color: red;">Download status: FAIL</h1><br />
-    <h1 style="color: red;">ID: {{data.id}}<br />{{data.type}} image<br />{{data.message}}</h1><br />
+    <h1 style="color: red;">ID: {{data.id}}<br />Type: {{data.type}} image<br />{{data.command.message}}</h1><br />
     {% endif %}
     {% include 'components/footer.html' %}
 </body>
