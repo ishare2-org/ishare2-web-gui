@@ -50,6 +50,8 @@ app.mount("/images", StaticFiles(directory="./web_app/static/images"), name="ima
 
 app.mount("/styles.css",
           StaticFiles(directory="./web_app/static/styles"), name="styles")
+app.mount("/app.js",
+          StaticFiles(directory="./web_app/static/scripts"), name="scripts")
 
 
 templates = Jinja2Templates(directory="./web_app/src")
