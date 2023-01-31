@@ -211,7 +211,7 @@ async def live_search_bin(q, request: Request):
         "title": "Live search bin images - ishare2",
         "command": live_search_bin_image(q)
     }
-    return templates.TemplateResponse("live_search/live_search_bin.html", {"request": request, "data": data})
+    return templates.TemplateResponse("components/utils/live_search/live_search_bin.html", {"request": request, "data": data})
 
 
 @app.get("/live_search/dynamips", tags=["Live search"])
@@ -220,7 +220,7 @@ async def live_search_dynamips(q, request: Request):
         "title": "Live search dynamips images - ishare2",
         "command": live_search_dynamips_image(q)
     }
-    return templates.TemplateResponse("live_search/live_search_dynamips.html", {"request": request, "data": data})
+    return templates.TemplateResponse("components/utils/live_search/live_search_dynamips.html", {"request": request, "data": data})
 
 
 @app.get("/live_search/qemu", tags=["Live search"])
@@ -229,7 +229,7 @@ async def live_search_qemu(q, request: Request):
         "title": "Live search qemu images - ishare2",
         "command": live_search_qemu_image(q)
     }
-    return templates.TemplateResponse("live_search/live_search_qemu.html", {"request": request, "data": data})
+    return templates.TemplateResponse("components/utils/live_search/live_search_qemu.html", {"request": request, "data": data})
 
 
 @app.get("/relicense", tags=["Extras"])
