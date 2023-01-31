@@ -235,7 +235,7 @@ async def get_relicensed(request: Request):
 async def get_changelog_file(request: Request):
     data = {
         "title": "Changelog - ishare2",
-        "command": get_changelog_content()
+        "url": get_changelog_content()
     }
     return templates.TemplateResponse("pages/changelog_ishare2.html", {"request": request, "data": data})
 
@@ -244,7 +244,7 @@ async def get_changelog_file(request: Request):
 async def get_changelog_gui_file(request: Request):
     data = {
         "title": "Changelog - ishare2",
-        "command": get_changelog_gui_content()
+        "url": get_changelog_gui_content()
     }
     return templates.TemplateResponse("pages/changelog.html", {"request": request, "data": data})
 
