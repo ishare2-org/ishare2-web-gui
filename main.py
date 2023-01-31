@@ -64,9 +64,7 @@ async def root(request: Request):
 
     data = {
         "version": ishare2_version,
-        "extras1": "Field #1 to add more info",
-        "extras2": "Field #2 to add more info",
-        "extras3": "Field #3 to add more info"
+        "title": "Homepage - ishare2",
     }
     # return data
     return templates.TemplateResponse("/pages/index.html", {"request": request, "data": data})
@@ -74,140 +72,200 @@ async def root(request: Request):
 
 @app.get("/lists/bin", tags=["Get lists"])
 async def get_list_of_bin_images(request: Request):
-    data = get_bin_list()
+    data = {
+        "title": "Bin images - ishare2",
+        "command": get_bin_list()
+    }
     # return data
     return templates.TemplateResponse("pages/lists/bin_list.html", {"request": request, "data": data})
 
 
 @app.get("/lists/dynamips", tags=["Get lists"])
 async def get_list_of_dynamips_images(request: Request):
-    data = get_dynamips_list()
+    data = {
+        "title": "Dynamips images - ishare2",
+        "command": get_dynamips_list()
+    }
     # return data
     return templates.TemplateResponse("pages/lists/dynamips_list.html", {"request": request, "data": data})
 
 
 @app.get("/lists/qemu", tags=["Get lists"])
 async def get_list_of_qemu_images(request: Request):
-    data = get_qemu_list()
+    data = {
+        "title": "Qemu images - ishare2",
+        "command": get_qemu_list()
+    }
     # return data
     return templates.TemplateResponse("pages/lists/qemu_list.html", {"request": request, "data": data})
 
 
 @app.get("/download/bin/{id}", tags=["Download images"])
 async def download_bin(id, request: Request):
-    data = download_bin_image(id)
+    data = {
+        "title": "Download bin image - ishare2",
+        "command": download_bin_image(id)
+    }
     # return data
     return templates.TemplateResponse("confirmation/after_download_bin.html", {"request": request, "data": data})
 
 
 @app.get("/delete/bin/{name}", tags=["Delete images"])
 async def delete_bin(name, request: Request):
-    data = delete_bin_image(name)
+    data = {
+        "title": "Delete bin image - ishare2",
+        "command": delete_bin_image(name)
+    }
     # return data
     return templates.TemplateResponse("confirmation/after_delete_bin.html", {"request": request, "data": data})
 
 
 @app.get("/download/dynamips/{id}", tags=["Download images"])
 async def download_dynamips(id, request: Request):
-    data = download_dynamips_image(id)
+    data = {
+        "title": "Download dynamips image - ishare2",
+        "command": download_dynamips_image(id)
+    }
     # return data
     return templates.TemplateResponse("confirmation/after_download_dynamips.html", {"request": request, "data": data})
 
 
 @app.get("/delete/dynamips/{name}", tags=["Delete images"])
 async def delete_dynamips(name, request: Request):
-    data = delete_dynamips_image(name)
+    data = {
+        "title": "Delete dynamips image - ishare2",
+        "command": delete_dynamips_image(name)
+    }
     # return data
     return templates.TemplateResponse("confirmation/after_delete_dynamips.html", {"request": request, "data": data})
 
 
 @app.get("/download/qemu/{id}", tags=["Download images"])
 async def download_qemu(id, request: Request):
-    data = download_qemu_image(id)
+    data = {
+        "title": "Download qemu image - ishare2",
+        "command": download_qemu_image(id)
+    }
     # return data
     return templates.TemplateResponse("confirmation/after_download_qemu.html", {"request": request, "data": data})
 
 
 @app.get("/delete/qemu/{foldername}", tags=["Delete images"])
 async def delete_qemu(foldername, request: Request):
-    data = delete_qemu_image(foldername)
+    data = {
+        "title": "Delete qemu image - ishare2",
+        "command": delete_qemu_image(foldername)
+    }
     # return data
     return templates.TemplateResponse("confirmation/after_delete_qemu.html", {"request": request, "data": data})
 
 
 @app.get("/delete/docker/{image_id}", tags=["Delete images"])
 async def delete_docker(image_id, request: Request):
-    data = delete_docker_image(image_id)
+    data = {
+        "title": "Delete docker image - ishare2",
+        "command": delete_docker_image(image_id)
+    }
     # return data
     return templates.TemplateResponse("confirmation/after_delete_docker.html", {"request": request, "data": data})
 
 
 @app.get("/installed/bin", tags=["Get installed images"])
 async def get_installed_bin(request: Request):
-    data = get_installed_bin_images()
+    data = {
+        "title": "Installed bin images - ishare2",
+        "command": get_installed_bin_images()
+    }
     # return data
     return templates.TemplateResponse("components/utils/display_installed/installed_bin_images.html", {"request": request, "data": data})
 
 
 @app.get("/installed/dynamips", tags=["Get installed images"])
 async def get_installed_dynamips(request: Request):
-    data = get_installed_dynamips_images()
+    data = {
+        "title": "Installed dynamips images - ishare2",
+        "command": get_installed_dynamips_images()
+    }
     # return data
     return templates.TemplateResponse("components/utils/display_installed/installed_dynamips_images.html", {"request": request, "data": data})
 
 
 @app.get("/installed/qemu", tags=["Get installed images"])
 async def get_installed_qemu(request: Request):
-    data = get_installed_qemu_images()
+    data = {
+        "title": "Installed qemu images - ishare2",
+        "command": get_installed_qemu_images()
+    }
     # return data
     return templates.TemplateResponse("components/utils/display_installed/installed_qemu_images.html", {"request": request, "data": data})
 
 
 @app.get("/installed/docker", tags=["Get installed images"])
 async def get_installed_docker(request: Request):
-    data = get_installed_docker_images()
+    data = {
+        "title": "Installed docker images - ishare2",
+        "command": get_installed_docker_images()
+    }
     # return data
     return templates.TemplateResponse("components/utils/display_installed/installed_docker_images.html", {"request": request, "data": data})
 
 
 @app.get("/live_search/bin", tags=["Live search"])
 async def live_search_bin(q, request: Request):
-    data = live_search_bin_image(q)
+    data = {
+        "title": "Live search bin images - ishare2",
+        "command": live_search_bin_image(q)
+    }
     # return data
     return templates.TemplateResponse("live_search/live_search_bin.html", {"request": request, "data": data})
 
 
 @app.get("/live_search/dynamips", tags=["Live search"])
 async def live_search_dynamips(q, request: Request):
-    data = live_search_dynamips_image(q)
+    data = {
+        "title": "Live search dynamips images - ishare2",
+        "command": live_search_dynamips_image(q)
+    }
     # return data
     return templates.TemplateResponse("live_search/live_search_dynamips.html", {"request": request, "data": data})
 
 
 @app.get("/live_search/qemu", tags=["Live search"])
 async def live_search_qemu(q, request: Request):
-    data = live_search_qemu_image(q)
+    data = {
+        "title": "Live search qemu images - ishare2",
+        "command": live_search_qemu_image(q)
+    }
     # return data
     return templates.TemplateResponse("live_search/live_search_qemu.html", {"request": request, "data": data})
 
 
 @app.get("/relicense", tags=["Extras"])
 async def get_relicensed(request: Request):
-    data = relicense()
+    data = {
+        "title": "Relicense - ishare2",
+        "command": relicense()
+    }
     # return data
     return templates.TemplateResponse("confirmation/after_relicense.html", {"request": request, "data": data})
 
 
 @app.get("/changelogs/ishare2", tags=["Changelogs"])
 async def get_changelog_file(request: Request):
-    data = get_changelog_content()
+    data = {
+        "title": "Changelog - ishare2",
+        "command": get_changelog_content()
+    }
     # return data
     return templates.TemplateResponse("pages/changelog_ishare2.html", {"request": request, "data": data})
 
 
 @app.get("/changelogs/gui", tags=["Changelogs"])
 async def get_changelog_gui_file(request: Request):
-    data = get_changelog_gui_content()
+    data = {
+        "title": "Changelog - ishare2",
+        "command": get_changelog_gui_content()
+    }
     # return data
     return templates.TemplateResponse("pages/changelog.html", {"request": request, "data": data})
 
