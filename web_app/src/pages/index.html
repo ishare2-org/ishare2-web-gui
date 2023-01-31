@@ -1,24 +1,8 @@
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ishare2</title>
-    <link href="{{ url_for('styles', path='styles.css') }}" rel="stylesheet">
-
-
-    <meta name="nofoobar.com" content="Nofoobar">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    {% block title %}
-    {% endblock %}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <link rel="icon" href="{{ url_for('images', path='/favicon.ico') }}" sizes="32x32" />
+{% block head %}
+{% include "components/head.html" %}
+{% endblock %}
 
 <body>
     {% include "components/navbar.html" %}
