@@ -5,7 +5,7 @@ from .misc_utils import get_credentials
 
 
 def get_bin_list():
-    config = get_credentials()
+    config = get_config()
     BIN_ID = config["credentials"]["bin_sheet_id"]
     GOOGLE_SHEETS_ID = config["credentials"]["google_sheet_id"]
 

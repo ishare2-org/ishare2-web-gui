@@ -5,7 +5,7 @@ from .misc_utils import get_credentials
 
 
 def get_dynamips_list():
-    config = get_credentials()
+    config = get_config()
     DYNAMIPS_ID = config["credentials"]["dynamips_sheet_id"]
     GOOGLE_SHEETS_ID = config["credentials"]["google_sheet_id"]
 

@@ -27,18 +27,22 @@ def relicense():
         }
 
 
-def get_credentials():
+def get_config():
     with open('config.json', 'r') as f:
         return json.load(f)
 
 
 def get_changelog_content():
-    return get_credentials()["constants"]["changelog_md_file"]
+    return get_config()["constants"]["changelog_md_file"]
 
 
 def get_changelog_gui_content():
-    return get_credentials()["constants"]["changelog_gui_md_file"]
+    return get_config()["constants"]["changelog_gui_md_file"]
 
 
 def get_help_content():
-    return get_credentials()["constants"]["help_md_file"]
+    return get_config()["constants"]["help_md_file"]
+
+
+def get_social_content():
+    return get_config()["social"]

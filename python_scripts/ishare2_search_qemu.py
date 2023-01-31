@@ -6,7 +6,7 @@ from .misc_utils import get_credentials
 
 
 def get_qemu_list():
-    config = get_credentials()
+    config = get_config()
     QEMU_ID = config["credentials"]["qemu_sheet_id"]
     GOOGLE_SHEETS_ID = config["credentials"]["google_sheet_id"]
 

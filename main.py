@@ -19,7 +19,7 @@ from python_scripts.ishare2_pull_bin import download_bin_image
 from python_scripts.ishare2_search_qemu import get_qemu_list
 from python_scripts.ishare2_search_dynamips import get_dynamips_list
 from python_scripts.ishare2_search_bin import get_bin_list
-from python_scripts.misc_utils import get_credentials
+from python_scripts.misc_utils import get_config
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -59,7 +59,7 @@ templates = Jinja2Templates(directory="./web_app/src")
 
 @ app.get("/", response_class=HTMLResponse, tags=["Root"])
 async def root(request: Request):
-    config = get_credentials()
+    config = get_config()
     URL_ISHARE2_VERSION = config["constants"]["ishare2_version"]
 
     ishare2_version = requests.get(URL_ISHARE2_VERSION).text
@@ -271,7 +271,7 @@ async def get_help_file(request: Request):
 
 
 if __name__ == "__main__":
-    config = get_credentials()
+    config = get_config()
     HOST = config["api"]["host"]
     PORT = config["api"]["port"]
 
