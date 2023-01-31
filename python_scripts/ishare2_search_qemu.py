@@ -2,7 +2,7 @@ import csv
 import requests
 
 from collections import defaultdict
-from .misc_utils import get_credentials
+from .misc_utils import get_config
 
 
 def get_qemu_list():

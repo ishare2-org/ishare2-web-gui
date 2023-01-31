@@ -1,7 +1,7 @@
 import csv
 import requests
 
-from .misc_utils import get_credentials
+from .misc_utils import get_config
 
 
 def get_dynamips_list():
