@@ -1,6 +1,40 @@
-<br>
-<div id="footer" align="center">
-    {% block footer %}
-    &copy; Copyright 2023 by ishare2</a>
-    {% endblock %}
-</div>
+<footer>
+
+    <div class="footer-content">
+
+        <h3>{{ footer_title }}</h3>
+
+        <p>{{ footer_text }}</p>
+
+        <ul class="socials">
+            <li><a href="{{ github_link }}"><i class="fa {{ github_icon }}"></i></a></li>
+            <li><a href="{{ telegram_link }}"><i class="fa {{ telegram_icon }}"></i></a></li>
+            <li><a href="{{ support_link }}"><i class="fa {{ support_icon }}"></i></a></li>
+        </ul>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>Copyright &copy <span id="year"></span> <a href={{ footer_company_link }}>{{ footer_company }} {{
+                ishare_version }} </a> - All Rights Reserved</p></a> </p>
+
+        <div class="footer-menu">
+
+            <ul class="f-menu">
+
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/about"></a></li>
+
+                <li><a href="#">Contact</a></li>
+
+                <li><a href="#">Blog</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</footer>
