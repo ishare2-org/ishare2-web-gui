@@ -19,6 +19,7 @@ from python_scripts.ishare2_pull_bin import download_bin_image
 from python_scripts.ishare2_search_qemu import get_qemu_list
 from python_scripts.ishare2_search_dynamips import get_dynamips_list
 from python_scripts.ishare2_search_bin import get_bin_list
+from python_scripts.add_context import add_context
 from python_scripts.misc_utils import get_config
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
@@ -59,16 +60,12 @@ templates = Jinja2Templates(directory="./web_app/src")
 
 @ app.get("/", response_class=HTMLResponse, tags=["Root"])
 async def root(request: Request):
-    config = get_config()
-    URL_ISHARE2_VERSION = config["constants"]["ishare2_version"]
-
-    ishare2_version = requests.get(URL_ISHARE2_VERSION).text
-
     data = {
-        "version": ishare2_version,
         "title": "Homepage - ishare2",
     }
-    return templates.TemplateResponse("/pages/index.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("/pages/index.html", context)
 
 
 @ app.get("/lists/bin", tags=["Get lists"])
@@ -77,7 +74,9 @@ async def get_list_of_bin_images(request: Request):
         "title": "Bin images - ishare2",
         "command": get_bin_list()
     }
-    return templates.TemplateResponse("pages/lists/bin_list.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("pages/lists/bin_list.html", context)
 
 
 @ app.get("/lists/dynamips", tags=["Get lists"])
@@ -86,7 +85,9 @@ async def get_list_of_dynamips_images(request: Request):
         "title": "Dynamips images - ishare2",
         "command": get_dynamips_list()
     }
-    return templates.TemplateResponse("pages/lists/dynamips_list.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("pages/lists/dynamips_list.html", context)
 
 
 @ app.get("/lists/qemu", tags=["Get lists"])
@@ -95,7 +96,9 @@ async def get_list_of_qemu_images(request: Request):
         "title": "Qemu images - ishare2",
         "command": get_qemu_list()
     }
-    return templates.TemplateResponse("pages/lists/qemu_list.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("pages/lists/qemu_list.html", context)
 
 
 @ app.get("/download/bin/{id}", tags=["Download images"])
@@ -106,7 +109,9 @@ async def download_bin(id, request: Request):
         "id": id,
         "type": "bin"
     }
-    return templates.TemplateResponse("confirmation/after_download_bin.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("confirmation/after_download_bin.html", context)
 
 
 @ app.get("/delete/bin/{name}", tags=["Delete images"])
@@ -116,7 +121,9 @@ async def delete_bin(name, request: Request):
         "command": delete_bin_image(name),
         "name": name
     }
-    return templates.TemplateResponse("confirmation/after_delete_bin.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("confirmation/after_delete_bin.html", context)
 
 
 @ app.get("/download/dynamips/{id}", tags=["Download images"])
@@ -127,7 +134,9 @@ async def download_dynamips(id, request: Request):
         "id": id,
         "type": "dynamips"
     }
-    return templates.TemplateResponse("confirmation/after_download_dynamips.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("confirmation/after_download_dynamips.html", context)
 
 
 @ app.get("/delete/dynamips/{name}", tags=["Delete images"])
@@ -137,7 +146,9 @@ async def delete_dynamips(name, request: Request):
         "command": delete_dynamips_image(name),
         "name": name
     }
-    return templates.TemplateResponse("confirmation/after_delete_dynamips.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("confirmation/after_delete_dynamips.html", context)
 
 
 @ app.get("/download/qemu/{id}", tags=["Download images"])
@@ -148,7 +159,9 @@ async def download_qemu(id, request: Request):
         "id": id,
         "type": "qemu"
     }
-    return templates.TemplateResponse("confirmation/after_download_qemu.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("confirmation/after_download_qemu.html", context)
 
 
 @ app.get("/delete/qemu/{foldername}", tags=["Delete images"])
@@ -158,7 +171,9 @@ async def delete_qemu(foldername, request: Request):
         "command": delete_qemu_image(foldername),
         "foldername": foldername
     }
-    return templates.TemplateResponse("confirmation/after_delete_qemu.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("confirmation/after_delete_qemu.html", context)
 
 
 @ app.get("/delete/docker/{image_id}", tags=["Delete images"])
@@ -168,7 +183,9 @@ async def delete_docker(image_id, request: Request):
         "command": delete_docker_image(image_id),
         "image_id": image_id
     }
-    return templates.TemplateResponse("confirmation/after_delete_docker.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("confirmation/after_delete_docker.html", context)
 
 
 @ app.get("/installed/bin", tags=["Get installed images"])
@@ -177,7 +194,9 @@ async def get_installed_bin(request: Request):
         "title": "Installed bin images - ishare2",
         "command": get_installed_bin_images(),
     }
-    return templates.TemplateResponse("components/utils/display_installed/installed_bin_images.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("components/utils/display_installed/installed_bin_images.html", context)
 
 
 @ app.get("/installed/dynamips", tags=["Get installed images"])
@@ -186,7 +205,9 @@ async def get_installed_dynamips(request: Request):
         "title": "Installed dynamips images - ishare2",
         "command": get_installed_dynamips_images()
     }
-    return templates.TemplateResponse("components/utils/display_installed/installed_dynamips_images.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("components/utils/display_installed/installed_dynamips_images.html", context)
 
 
 @ app.get("/installed/qemu", tags=["Get installed images"])
@@ -195,7 +216,9 @@ async def get_installed_qemu(request: Request):
         "title": "Installed qemu images - ishare2",
         "command": get_installed_qemu_images()
     }
-    return templates.TemplateResponse("components/utils/display_installed/installed_qemu_images.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("components/utils/display_installed/installed_qemu_images.html", context)
 
 
 @ app.get("/installed/docker", tags=["Get installed images"])
@@ -204,7 +227,9 @@ async def get_installed_docker(request: Request):
         "title": "Installed docker images - ishare2",
         "command": get_installed_docker_images()
     }
-    return templates.TemplateResponse("components/utils/display_installed/installed_docker_images.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("components/utils/display_installed/installed_docker_images.html", context)
 
 
 @ app.get("/live_search/bin", tags=["Live search"])
@@ -213,7 +238,9 @@ async def live_search_bin(q, request: Request):
         "title": "Live search bin images - ishare2",
         "command": live_search_bin_image(q)
     }
-    return templates.TemplateResponse("components/utils/live_search/live_search_bin.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("components/utils/live_search/live_search_bin.html", context)
 
 
 @ app.get("/live_search/dynamips", tags=["Live search"])
@@ -222,7 +249,9 @@ async def live_search_dynamips(q, request: Request):
         "title": "Live search dynamips images - ishare2",
         "command": live_search_dynamips_image(q)
     }
-    return templates.TemplateResponse("components/utils/live_search/live_search_dynamips.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("components/utils/live_search/live_search_dynamips.html", context)
 
 
 @ app.get("/live_search/qemu", tags=["Live search"])
@@ -231,7 +260,9 @@ async def live_search_qemu(q, request: Request):
         "title": "Live search qemu images - ishare2",
         "command": live_search_qemu_image(q)
     }
-    return templates.TemplateResponse("components/utils/live_search/live_search_qemu.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("components/utils/live_search/live_search_qemu.html", context)
 
 
 @ app.get("/relicense", tags=["Extras"])
@@ -240,7 +271,9 @@ async def get_relicensed(request: Request):
         "title": "Relicense - ishare2",
         "command": relicense()
     }
-    return templates.TemplateResponse("confirmation/after_relicense.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("confirmation/after_relicense.html", context)
 
 
 @ app.get("/changelogs/ishare2", tags=["Changelogs"])
@@ -249,7 +282,9 @@ async def get_changelog_file(request: Request):
         "title": "Changelog - ishare2",
         "url": get_changelog_content()
     }
-    return templates.TemplateResponse("pages/changelog_ishare2.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("pages/changelog_ishare2.html", context)
 
 
 @ app.get("/changelogs/gui", tags=["Changelogs"])
@@ -258,16 +293,20 @@ async def get_changelog_gui_file(request: Request):
         "title": "Changelog - ishare2",
         "url": get_changelog_gui_content()
     }
-    return templates.TemplateResponse("pages/changelog.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("pages/changelog.html", context)
 
 
-@ app.get("/help", tags=["Extras"])
+@ app.get("/help", tags=["Help"])
 async def get_help_file(request: Request):
     data = {
         "title": "Help - ishare2",
         "url": get_help_content()
     }
-    return templates.TemplateResponse("pages/help.html", {"request": request, "data": data})
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("pages/help.html", context)
 
 
 if __name__ == "__main__":
