@@ -272,7 +272,10 @@ async def get_changelog_gui_file(request: Request):
 
 @app.get("/help", tags=["Extras"])
 async def get_help_file(request: Request):
-    data = get_help_content()
+    data = {
+        "title": "Help - ishare2",
+        "url": get_help_content()
+    }
     # return data
     return templates.TemplateResponse("pages/help.html", {"request": request, "data": data})
 
