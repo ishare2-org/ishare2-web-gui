@@ -15,9 +15,17 @@
         "changelog_gui_md_file": "https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/gui/CHANGELOG.md",
         "help_md_file": "https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/HELP.md"
     },
-    "social": {
+    "social_media": {
+        "links": {
         "github": "https://github.com/pnetlabrepo/ishare2",
         "telegram": "https://t.me/unetlab_cloud",
-        "pnetlab_support": "https://t.me/pnetlab"
+            "support": "https://t.me/pnetlab"
+        },
+        "icons": {
+            "github": "fa-github",
+            "telegram": "fa-telegram",
+            "support": "fa-telegram"
+        }
+    },
     }
 }
