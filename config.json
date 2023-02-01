@@ -83,6 +83,20 @@
         "title": "ishare2",
         "text": "ishare2 is a free and open source project. It is not affiliated with Cisco Systems, Inc. or any other company. All trademarks are the property of their respective owners.",
         "company": "ishare2",
-        "company_link": "https://github.com/pnetlabrepo/ishare2"
+        "company_link": "https://github.com/pnetlabrepo/ishare2",
+        "menu": [
+            {
+                "title": "Home",
+                "link": "/"
+            },
+            {
+                "title": "Get in touch",
+                "link": "https://t.me/unetlab_cloud"
+            },
+            {
+                "title": "Changelog",
+                "link": "/changelogs/gui"
+            }
+        ]
     }
 }
