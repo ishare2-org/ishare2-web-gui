@@ -13,27 +13,29 @@
     {% block scripts %}
     {% endblock %}
 
-    <h1>Installed bin images</h1>
-    <table class="content-table" style="margin: 0px auto">
-        <thead>
-            {% if data.command|count == 0 %}
-            <p>No bin images installed.</p>
-            {% else %}
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-            </tr>
-            {% endif %}
-        </thead>
-        <tbody>
-            {% for value in data.command %}
-            <tr>
-                <td>{{loop.index}}</td>
-                <td>{{value.name}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <main>
+        <h1>Installed bin images</h1>
+        <table class="content-table" style="margin: 0px auto">
+            <thead>
+                {% if data.command|count == 0 %}
+                <p>No bin images installed.</p>
+                {% else %}
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                </tr>
+                {% endif %}
+            </thead>
+            <tbody>
+                {% for value in data.command %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{value.name}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
     {% include 'components/footer.html' %}
 </body>
 
