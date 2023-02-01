@@ -1,24 +1,22 @@
 <html lang="en">
-
 {% include "components/head.html" %}
 
 <body>
+    <script async src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     {% include "components/navbar.html" %}
-
-    <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
     <main>
-        <div id="mypost" class="changelog"></div>
+        <div id="changelog" class="changelog"></div>
     </main>
-    <script>
-        fetch('{{data.url}}').then(response => response.text())
-            .then(data => {
-                var converter = new showdown.Converter();
-                var md = data;
-                var html = converter.makeHtml(md);
-                document.querySelector('#mypost').innerHTML = html;
-            });
-    </script>
     {% include 'components/footer.html' %}
+    <script>
+        window.addEventListener('load', () => {
+            fetch('{{data.url}}').then(response => response.text())
+                .then(data => {
+                    const md = data;
+                    document.querySelector('#changelog').innerHTML = marked.parse(md);
+                });
+        });
+    </script>
 </body>
 
 </html>

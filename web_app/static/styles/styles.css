@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
 }
+
 main {
   background: #ededf0;
   font-size: 16px;
@@ -11,10 +12,6 @@ main {
   font-weight: 400;
   overflow-x: hidden;
   min-height: 70vh;
-}
-
-h1 {
-  color: #009879;
 }
 
 table {
@@ -238,6 +235,17 @@ footer {
 }
 
 .changelog {
-  width: 50rem;
+  max-width: 50rem;
   margin: 4rem auto;
+  padding: 2rem;
+  overflow: auto;
+  background-color: #f8f8f8;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 50rem) {
+  .changelog {
+    max-width: 100%;
+    margin: 1rem;
+  }
 }
