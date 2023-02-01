@@ -18,5 +18,11 @@ def add_context(context, request, data):
     context["telegram_icon"] = config["social_media"]["icons"]["telegram"]
     context["support_link"] = config["social_media"]["links"]["support"]
     context["support_icon"] = config["social_media"]["icons"]["support"]
+    context["footer_menu"] = config["footer"]["menu"]
+    context["navbar"] = config["navbar"]
+    context["nav_items"] = context["navbar"]["menu"]
+    context["dropdown"] = config["navbar"]["dropdown"]
+    context["dropdown_menu"] = context["dropdown"]["menu"]
+    context["dropdown_submenu"] = context["dropdown"]["sub_menu"]
 
     return context
