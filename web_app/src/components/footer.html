@@ -16,21 +16,16 @@
 
     <div class="footer-bottom">
 
-        <p>Copyright &copy <span id="year"></span> <a href={{ footer_company_link }}>{{ footer_company }} {{
+        <p>Copyright &copy <span id="year"></span> <a href={{ footer_company_link }}> powered by {{ footer_company }}
+                CLI {{
                 ishare_version }} </a> - All Rights Reserved</p></a> </p>
 
         <div class="footer-menu">
 
             <ul class="f-menu">
-
-                <li><a href="/">Home</a></li>
-
-                <li><a href="/about"></a></li>
-
-                <li><a href="#">Contact</a></li>
-
-                <li><a href="#">Blog</a></li>
-
+                {% for item in footer_menu %}
+                <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+                {% endfor %}
             </ul>
 
         </div>
