@@ -27,6 +27,58 @@
             "support": "fa-telegram"
         }
     },
+    "navbar": {
+        "brand": "ishare2 GUI",
+        "menu": [
+            {
+                "title": "Home",
+                "icon": "fa-home",
+                "href": "/"
+            },
+            {
+                "title": "GitHub",
+                "icon": "fa-github",
+                "href": "https://github.com/pnetlabrepo/ishare2"
+            },
+            {
+                "title": "Changelog",
+                "icon": "fa-history",
+                "href": "/changelogs/gui"
+            }
+        ],
+        "dropdown": {
+            "title": "Manage",
+            "icon": "fa-cog",
+            "menu": [
+                {
+                    "title": "Manage bin images",
+                    "href": "/installed/bin"
+                },
+                {
+                    "title": "Manage QEMU images",
+                    "href": "/installed/qemu"
+                },
+                {
+                    "title": "Manage Dynamips images",
+                    "href": "/installed/dynamips"
+                }
+            ],
+            "sub_menu": [
+                {
+                    "title": "Download bin images",
+                    "href": "/lists/bin"
+                },
+                {
+                    "title": "Download QEMU images",
+                    "href": "/lists/qemu"
+                },
+                {
+                    "title": "Download Dynamips images",
+                    "href": "/lists/dynamips"
+                }
+            ]
+        }
+    },
     "footer": {
         "title": "ishare2",
         "text": "ishare2 is a free and open source project. It is not affiliated with Cisco Systems, Inc. or any other company. All trademarks are the property of their respective owners.",
