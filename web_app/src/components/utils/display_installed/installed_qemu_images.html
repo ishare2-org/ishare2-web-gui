@@ -6,34 +6,33 @@
 
 <body>
     {% include "components/navbar.html" %}
-    {% block content %}
-    {% endblock %}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-    {% block scripts %}
-    {% endblock %}
-
-    <h1>Installed qemu images</h1><br />
-    <table class="content-table" style="margin: 0px auto">
-        <thead>
-            {% if data.command == [] %}
-            <p>No qemu images</p>
-            {% else %}
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-            </tr>
-            {% endif %}
-        </thead>
-        <tbody>
-            {% for value in data.command %}
-            <tr>
-                <td>{{loop.index}}</td>
-                <td>{{value.name}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <main>
+        <h1>Installed qemu images</h1><br />
+        {% if data.command == [] %}
+        <p>No qemu images available.</p>
+        {% else %}
+        <div class="table-container">
+            <table class="table table-striped">
+                <caption>List of installed qemu images</caption>
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for value in data.command %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{value.name}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </main>
     {% include 'components/footer.html' %}
 </body>
 

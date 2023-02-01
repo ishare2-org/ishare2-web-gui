@@ -1,40 +1,33 @@
 <html lang="en">
 
-{% block head %}
 {% include "components/head.html" %}
-{% endblock %}
 
 <body>
     {% include "components/navbar.html" %}
-    {% block content %}
-    {% endblock %}
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-    {% block scripts %}
-    {% endblock %}
 
     <main>
         <h1>Installed bin images</h1>
-        <table class="content-table" style="margin: 0px auto">
-            <thead>
-                {% if data.command|count == 0 %}
-                <p>No bin images installed.</p>
-                {% else %}
-                <tr>
+        {% if data.command|count == 0 %}
+        <p>No bin images installed.</p>
+        {% else %}
+        <div class="table-container">
+            <table class="table table-striped">
+                <caption>List of installed bin images</caption>
+                <thead class="thead-dark">
                     <th>#</th>
                     <th>Name</th>
-                </tr>
-                {% endif %}
-            </thead>
-            <tbody>
-                {% for value in data.command %}
-                <tr>
-                    <td>{{loop.index}}</td>
-                    <td>{{value.name}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                    {% endif %}
+                </thead>
+                <tbody>
+                    {% for value in data.command %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{value.name}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </main>
     {% include 'components/footer.html' %}
 </body>
