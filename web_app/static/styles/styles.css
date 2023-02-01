@@ -17,11 +17,19 @@ h1 {
   color: #009879;
 }
 
+table {
+  width: 100%;
+}
+
+th {
+  text-transform: uppercase;
+}
+
 main {
   margin: 0 auto;
-  max-width: 800px;
+  min-width: 100%;
   padding: 0 20px;
-  min-height: 80vh;
+  min-height: 100%;
 }
 
 footer {
@@ -33,7 +41,6 @@ footer {
   width: 100vw;
   padding-top: 40px;
   color: #fff;
-  margin-top: 100px;
 }
 
 .footer-content {
@@ -42,6 +49,7 @@ footer {
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  padding: 0 2.2rem;
 }
 
 .footer-content h3 {
@@ -90,8 +98,7 @@ footer {
 .footer-bottom {
   background: #000;
   width: 100vw;
-  padding: 20px;
-  padding-bottom: 40px;
+  padding: 3rem 2rem 5rem;
   text-align: center;
 }
 
@@ -140,49 +147,9 @@ footer {
 
   .footer-menu ul {
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 8px;
     text-align: center;
   }
-}
-
-.content-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  min-width: 400px;
-  border-radius: 5px 5px 0 0;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.content-table thead tr {
-  background-color: #009879;
-  color: #ffffff;
-  text-align: left;
-  font-weight: bold;
-}
-
-.content-table th,
-.content-table td {
-  padding: 12px 15px;
-}
-
-.content-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-.content-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-.content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
-.content-table tbody tr.active-row {
-  font-weight: bold;
-  color: #009879;
 }
 
 .telegram-button {
@@ -228,5 +195,20 @@ footer {
   vertical-align: top;
 }
 .bg-black {
-  background-color: #000;
+  background-color: #111;
+}
+
+.table-container {
+  display: table;
+  width: 50vw;
+  margin: 5rem auto;
+}
+.changelogs {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+}
+.changelogs a {
+  padding: 0.5rem 1rem;
 }
