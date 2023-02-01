@@ -4,6 +4,14 @@
   margin: 0;
   padding: 0;
 }
+main {
+  background: #ededf0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  overflow-x: hidden;
+}
 
 h1 {
   color: #009879;
