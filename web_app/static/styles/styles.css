@@ -205,15 +205,27 @@ footer {
   padding: 0.5rem 1rem;
 }
 
+@media screen and (min-width: 570px) {
+  .input-group .form-control {
+    background-color: #bdbdbd;
+    transition: width 0.5s ease-in-out !important;
+    width: 12.5rem !important;
+    box-shadow: 0 0 5px #bdbdbd !important;
+    border: none !important;
+  }
+  .input-group .form-control:focus {
+    width: 25rem !important;
+    box-shadow: 0 0 6px #bdbdbd !important;
+  }
+}
+
 .input-group .form-control {
   background-color: #bdbdbd;
   transition: width 0.5s ease-in-out !important;
-  width: 200px !important;
   box-shadow: 0 0 5px #bdbdbd !important;
   border: none !important;
 }
 .input-group .form-control:focus {
-  width: 400px !important;
   box-shadow: 0 0 6px #bdbdbd !important;
 }
 
@@ -223,4 +235,9 @@ footer {
   border: 0;
   border-radius: 0;
   box-shadow: 0 0 5px #bdbdbd !important;
+}
+
+.changelog {
+  width: 50rem;
+  margin: 4rem auto;
 }
