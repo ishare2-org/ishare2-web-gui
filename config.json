@@ -80,7 +80,7 @@
         }
     },
     "footer": {
-        "title": "ishare2",
+        "title": "ishare2 GUI",
         "text": "ishare2 is a free and open source project. It is not affiliated with Cisco Systems, Inc. or any other company. All trademarks are the property of their respective owners.",
         "company": "ishare2",
         "company_link": "https://github.com/pnetlabrepo/ishare2",
