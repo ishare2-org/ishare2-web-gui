@@ -19,7 +19,7 @@ def live_search_bin_image(q):
         {
             "name": value["name"],
             "size": value["size"],
-            "unit": value["unit"]
+            "unit": value["unit"],
             "id": value["id"],
         } for value in data if q in value["name"]
     ]
@@ -31,7 +31,7 @@ def live_search_dynamips_image(q):
         {
             "name": value["name"],
             "size": value["size"],
-            "unit": value["unit"]
+            "unit": value["unit"],
             "id": value["id"],
         } for value in data if q in value["name"]
     ]
