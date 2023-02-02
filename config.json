@@ -61,6 +61,10 @@
                 {
                     "title": "Manage Dynamips images",
                     "href": "/installed/dynamips"
+                },
+                {
+                    "title": "Manage Docker images",
+                    "href": "/installed/docker"
                 }
             ],
             "sub_menu": [
