@@ -1,0 +1,73 @@
+<html lang="en">
+
+{% include "components/head.html" %}
+
+
+<body>
+    {% include "components/navbar.html" %}
+
+    <main>
+        <h1>Available images to download</h1><br />
+        <div class="table-container">
+            <table class="table table-striped">
+                <caption>Available images for download</caption>
+                <thead class="thead-dark">
+                    <th>#</th>
+                    <th>Actions</th>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Unit</th>
+                </thead>
+                <tbody>
+                    {% for value in data.command %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>
+                            <button id="download-btn-{{loop.index}}"
+                                onclick="downloadImage('{{loop.index}}', '{% if value.type == " qemu"
+                                %}{{value.foldername}}{% else %}{{value.name}}{% endif %}', '{{value.type}}' ); return
+                                false;" class="btn btn-success btn-sm">Download</button>
+                            <button id="delete-btn-{{loop.index}}"
+                                onclick="deleteImage('{{loop.index}}', '{% if value.type == " qemu"
+                                %}{{value.foldername}}{% else %}{{value.name}}{% endif %}', '{{value.type}}' ); return
+                                false;" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                        {% if value.type == "qemu" %}
+                        <td>{{value.foldername}}</td>
+                        {% else %}
+                        <td>{{value.name}}</td>
+                        {% endif %}
+                        <td>{{value.size}}</td>
+                        <td>{{value.unit}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div id="download-result" class="download-result"></div>
+        </div>
+    </main>
+    <script>
+        function downloadImage(id, name, type) {
+            $.ajax({
+                url: '/download/' + type + '/' + id,
+                type: 'GET',
+                success: function (result) {
+                    console.log(result);
+                    $('#download-result').html(name + " " + result.message);
+                }
+            });
+        }
+        function deleteImage(id, name, type) {
+            $.ajax({
+                url: '/delete/' + type + '/' + id,
+                type: 'GET',
+                success: function (result) {
+                    $('#download-result').html(name + " " + result.message);
+                }
+            });
+        }
+    </script>
+    {% include 'components/footer.html' %}
+</body>
+
+</html>
