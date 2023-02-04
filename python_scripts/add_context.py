@@ -2,7 +2,7 @@ from .misc_utils import get_config
 import requests
 
 
-def add_context(context, request, data):
+def add_context(context: dict, request, data: dict):
     config = get_config()
     URL_ISHARE2_VERSION = config["constants"]["ishare2_version"]
     context["data"] = data
