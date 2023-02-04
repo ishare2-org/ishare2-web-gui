@@ -16,7 +16,6 @@
                     <th>Actions</th>
                     <th>Name</th>
                     <th>Size</th>
-                    <th>Unit</th>
                 </thead>
                 <tbody>
                     {% for value in data.command %}
@@ -38,8 +37,7 @@
                         {% else %}
                         <td>{{value.name}}</td>
                         {% endif %}
-                        <td>{{value.size}}</td>
-                        <td>{{value.unit}}</td>
+                        <td>{{value.size}} {{value.unit}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
