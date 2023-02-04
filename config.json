@@ -16,6 +16,24 @@
         "changelog_gui_md_file": "https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/gui/CHANGELOG.md",
         "help_md_file": "https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/HELP.md"
     },
+    "current_installation": {
+        "ishare2_version": ""
+    },
+    "metatags": {
+        "sitename": "ishare2 GUI",
+        "title": "ishare2 GUI",
+        "url": "https://github.com/ishare2-org/ishare2-gui",
+        "type": "website",
+        "description": "ishare2 GUI is a web interface for ishare2 project. It allows you to download and manage bin, QEMU, Dynamips and Docker images.",
+        "keywords": "ishare2, gui, web, interface, bin, qemu, dynamips, docker, images, download, manage",
+        "image": "Homepage - ishare2.png",
+        "author": "ishare2",
+        "author_link": "https://t.me/unetlab_cloud",
+        "favicon": "favicon.ico",
+        "logo": "logo.png",
+        "logo_text": "ishare2 GUI",
+        "logo_link": "/"
+    },
     "social_media": {
         "links": {
             "github": "https://github.com/pnetlabrepo/ishare2",
