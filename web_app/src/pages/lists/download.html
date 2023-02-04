@@ -7,10 +7,10 @@
     {% include "components/navbar.html" %}
 
     <main>
-        <h1>Available images to download</h1><br />
+        <h1>Available {{ data.type }} images to download</h1><br />
         <div class="table-container">
             <table class="table table-striped">
-                <caption>Available images for download</caption>
+                <caption>Available {{ data.type }} images for download</caption>
                 <thead class="thead-dark">
                     <th>#</th>
                     <th>Actions</th>

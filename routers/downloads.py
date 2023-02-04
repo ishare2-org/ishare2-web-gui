@@ -18,7 +18,8 @@ for image_type in IMAGE_TYPES:
     async def get_image_type(request: Request, image_type=image_type):
         data = {
             "title": f"{image_type} images - ishare2",
-            "command": get_images(image_type)
+            "command": get_images(image_type),
+            "type": image_type
         }
         context = {}
         context = add_context(context, request, data)
