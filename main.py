@@ -68,28 +68,6 @@ async def live_search_bin(q, request: Request):
     return templates.TemplateResponse("components/utils/live_search/live_search_bin.html", context)
 
 
-@ app.get("/live_search/dynamips", tags=["Live search"])
-async def live_search_dynamips(q, request: Request):
-    data = {
-        "title": "Live search dynamips images - ishare2",
-        "command": live_search_dynamips_image(q)
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("components/utils/live_search/live_search_dynamips.html", context)
-
-
-@ app.get("/live_search/qemu", tags=["Live search"])
-async def live_search_qemu(q, request: Request):
-    data = {
-        "title": "Live search qemu images - ishare2",
-        "command": live_search_qemu_image(q)
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("components/utils/live_search/live_search_qemu.html", context)
-
-
 @ app.get("/relicense", tags=["Extras"])
 async def get_relicensed(request: Request):
     return relicense()
