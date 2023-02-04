@@ -1,4 +1,4 @@
-from routers import downloads, request_delete, request_download
+from routers import downloads, request_delete, request_download, installed
 from python_scripts.download_csv import download_csv
 from python_scripts.misc_utils import get_help_content
 from python_scripts.misc_utils import get_changelog_gui_content
@@ -7,10 +7,6 @@ from python_scripts.misc_utils import relicense
 from python_scripts.live_search_form import live_search_qemu_image
 from python_scripts.live_search_form import live_search_dynamips_image
 from python_scripts.live_search_form import live_search_bin_image
-from python_scripts.ishare2_installed_docker import get_installed_docker_images
-from python_scripts.ishare2_installed_qemu import get_installed_qemu_images
-from python_scripts.ishare2_installed_dynamips import get_installed_dynamips_images
-from python_scripts.ishare2_installed_bin import get_installed_bin_images
 from python_scripts.add_context import add_context
 from python_scripts.misc_utils import get_config
 from fastapi.staticfiles import StaticFiles
@@ -51,6 +47,7 @@ templates = Jinja2Templates(
 app.include_router(downloads.router)
 app.include_router(request_delete.router)
 app.include_router(request_download.router)
+app.include_router(installed.router)
 
 
 @app.get("/", response_class=HTMLResponse, tags=["Root"])
@@ -61,50 +58,6 @@ async def root(request: Request):
     context = {}
     context = add_context(context, request, data)
     return templates.TemplateResponse("/pages/index.html", context)
-
-
-@ app.get("/installed/bin", tags=["Get installed images"])
-async def get_installed_bin(request: Request):
-    data = {
-        "title": "Installed bin images - ishare2",
-        "command": get_installed_bin_images(),
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("components/utils/display_installed/installed_bin_images.html", context)
-
-
-@ app.get("/installed/dynamips", tags=["Get installed images"])
-async def get_installed_dynamips(request: Request):
-    data = {
-        "title": "Installed dynamips images - ishare2",
-        "command": get_installed_dynamips_images()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("components/utils/display_installed/installed_dynamips_images.html", context)
-
-
-@ app.get("/installed/qemu", tags=["Get installed images"])
-async def get_installed_qemu(request: Request):
-    data = {
-        "title": "Installed qemu images - ishare2",
-        "command": get_installed_qemu_images()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("components/utils/display_installed/installed_qemu_images.html", context)
-
-
-@ app.get("/installed/docker", tags=["Get installed images"])
-async def get_installed_docker(request: Request):
-    data = {
-        "title": "Installed docker images - ishare2",
-        "command": get_installed_docker_images()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("components/utils/display_installed/installed_docker_images.html", context)
 
 
 @ app.get("/live_search/bin", tags=["Live search"])
