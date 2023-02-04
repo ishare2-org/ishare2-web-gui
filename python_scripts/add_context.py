@@ -24,5 +24,6 @@ def add_context(context: dict, request, data: dict):
     context["dropdown"] = config["navbar"]["dropdown"]
     context["dropdown_menu"] = context["dropdown"]["menu"]
     context["dropdown_submenu"] = context["dropdown"]["sub_menu"]
+    context["metatags"] = config["metatags"]
 
     return context
