@@ -17,9 +17,6 @@ from python_scripts.ishare2_installed_bin import get_installed_bin_images
 from python_scripts.ishare2_pull_qemu import download_qemu_image
 from python_scripts.ishare2_pull_dynamips import download_dynamips_image
 from python_scripts.ishare2_pull_bin import download_bin_image
-from python_scripts.ishare2_search_qemu import get_qemu_list
-from python_scripts.ishare2_search_dynamips import get_dynamips_list
-from python_scripts.ishare2_search_bin import get_bin_list
 from python_scripts.add_context import add_context
 from python_scripts.misc_utils import get_config
 from fastapi.staticfiles import StaticFiles
@@ -67,39 +64,6 @@ async def root(request: Request):
     context = {}
     context = add_context(context, request, data)
     return templates.TemplateResponse("/pages/index.html", context)
-
-
-@ app.get("/lists/bin", tags=["Get lists"])
-async def get_list_of_bin_images(request: Request):
-    data = {
-        "title": "Bin images - ishare2",
-        "command": get_bin_list()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("pages/lists/bin_list.html", context)
-
-
-@ app.get("/lists/dynamips", tags=["Get lists"])
-async def get_list_of_dynamips_images(request: Request):
-    data = {
-        "title": "Dynamips images - ishare2",
-        "command": get_dynamips_list()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("pages/lists/dynamips_list.html", context)
-
-
-@ app.get("/lists/qemu", tags=["Get lists"])
-async def get_list_of_qemu_images(request: Request):
-    data = {
-        "title": "Qemu images - ishare2",
-        "command": get_qemu_list()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("pages/lists/qemu_list.html", context)
 
 
 @ app.get("/download/bin/{id}", tags=["Download images"])
