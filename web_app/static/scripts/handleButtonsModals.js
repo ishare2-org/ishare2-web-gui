@@ -44,7 +44,12 @@ function downloadImage(id, name, type) {
         url: '/download/' + type + '/' + id,
         type: 'GET',
         success: function (result) {
-            $('#action-result').html(name + " " + result.message);
+            $.notify(result.message, {
+                position: "bottom right",
+                style: "bootstrap",
+                className: "success",
+                autoHide: true
+            });
         }
     });
 }
@@ -53,7 +58,14 @@ function deleteImage(id, name, type) {
         url: '/delete/' + type + '/' + id,
         type: 'GET',
         success: function (result) {
-            $('#action-result').html(name + " " + result.message);
+            let msgclass;
+            result.status >= 0 ? msgclass = "error" : msgclass = "success";
+            $.notify(result.message, {
+                position: "bottom right",
+                style: "bootstrap",
+                className: msgclass,
+                autoHide: true
+            });
         }
     });
 }
