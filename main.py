@@ -1,4 +1,5 @@
 from routers import downloads
+from python_scripts.download_csv import download_csv
 from python_scripts.misc_utils import get_help_content
 from python_scripts.misc_utils import get_changelog_gui_content
 from python_scripts.misc_utils import get_changelog_content
@@ -28,6 +29,7 @@ import json
 import uvicorn
 import requests
 
+download_csv()
 
 app = FastAPI(
     title="ishare2 API",
