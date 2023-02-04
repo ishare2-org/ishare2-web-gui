@@ -2,6 +2,10 @@
 
 iShare2 GUI is a web interface for the iShare2 project, designed to provide a graphical user experience for managing and downloading bin, QEMU, Dynamips, and Docker images for network emulators. It leverages the capabilities of the [iShare2 CLI](https://github.com/pnetlabrepo/ishare2), executing its commands under the hood to simplify image management for network administrators.
 
+## Screenshots
+
+![alt iShare2-GUI's Homepage](web_app/static/images/Homepage%20-%20ishare2.png)
+
 The iShare2 GUI is currently under development and may not be stable yet. It has only been tested on PNetLab, but it may be adaptable to work on other network emulators.
 
 The iShare2 GUI is designed to make it easy for you to manage your network emulation environment by providing a simple, intuitive interface. You can use the "Manage" dropdown in the navbar to access different management options, such as managing your bin images, QEMU images, Dynamips images, or Docker images. Additionally, the "Download" option in the sub-menu gives you access to the different image types that you can download.
