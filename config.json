@@ -1,6 +1,6 @@
 {
     "api": {
-        "host": "0.0.0.0",
+        "host": "localhost",
         "port": 5000
     },
     "credentials": {
@@ -36,7 +36,7 @@
     },
     "social_media": {
         "links": {
-            "github": "https://github.com/pnetlabrepo/ishare2",
+            "github": "https://github.com/ishare-org/ishare2-gui",
             "telegram": "https://t.me/unetlab_cloud",
             "support": "https://t.me/pnetlab"
         },
@@ -57,7 +57,7 @@
             {
                 "title": "GitHub",
                 "icon": "fa-github",
-                "href": "https://github.com/pnetlabrepo/ishare2"
+                "href": "https://github.com/ishare2-org/ishare2-gui"
             },
             {
                 "title": "Changelog",
@@ -69,6 +69,20 @@
             "title": "Manage",
             "icon": "fa-cog",
             "menu": [
+                {
+                    "title": "Download bin images",
+                    "href": "/download/bin"
+                },
+                {
+                    "title": "Download QEMU images",
+                    "href": "/download/qemu"
+                },
+                {
+                    "title": "Download Dynamips images",
+                    "href": "/download/dynamips"
+                }
+            ],
+            "sub_menu": [
                 {
                     "title": "Manage bin images",
                     "href": "/installed/bin"
@@ -85,20 +99,6 @@
                     "title": "Manage Docker images",
                     "href": "/installed/docker"
                 }
-            ],
-            "sub_menu": [
-                {
-                    "title": "Download bin images",
-                    "href": "/download/bin"
-                },
-                {
-                    "title": "Download QEMU images",
-                    "href": "/download/qemu"
-                },
-                {
-                    "title": "Download Dynamips images",
-                    "href": "/download/dynamips"
-                }
             ]
         }
     },
@@ -106,7 +106,7 @@
         "title": "ishare2 GUI",
         "text": "ishare2 is a free and open source project. It is not affiliated with Cisco Systems, Inc. or any other company. All trademarks are the property of their respective owners.",
         "company": "ishare2",
-        "company_link": "https://github.com/pnetlabrepo/ishare2",
+        "company_link": "https://github.com/ishare2-org/ishare2-gui",
         "menu": [
             {
                 "title": "Home",
