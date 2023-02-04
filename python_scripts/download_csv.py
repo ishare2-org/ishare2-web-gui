@@ -25,6 +25,9 @@ def download_csv():
     QEMU_CSV = os.path.join(CSV_PATH, "qemu.csv")
     DYNAMIPS_CSV = os.path.join(CSV_PATH, "dynamips.csv")
 
+    if not os.path.exists(CSV_PATH):
+        os.makedirs(CSV_PATH)
+
     downloader(URL_BIN_FILE, BIN_CSV)
     downloader(URL_QEMU_FILE, QEMU_CSV)
     downloader(URL_DYNAMIPS_FILE, DYNAMIPS_CSV)
