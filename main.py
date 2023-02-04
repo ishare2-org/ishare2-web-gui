@@ -4,9 +4,6 @@ from python_scripts.misc_utils import get_help_content
 from python_scripts.misc_utils import get_changelog_gui_content
 from python_scripts.misc_utils import get_changelog_content
 from python_scripts.misc_utils import relicense
-from python_scripts.live_search_form import live_search_qemu_image
-from python_scripts.live_search_form import live_search_dynamips_image
-from python_scripts.live_search_form import live_search_bin_image
 from python_scripts.add_context import add_context
 from python_scripts.misc_utils import get_config
 from fastapi.staticfiles import StaticFiles
