@@ -23,4 +23,4 @@ for image_type in IMAGE_TYPES:
         }
         context = {}
         context = add_context(context, request, data)
-        return templates.TemplateResponse("pages/lists/download.html", context)
+        return templates.TemplateResponse("pages/download.html", context)

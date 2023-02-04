@@ -20,4 +20,4 @@ for image_type in IMAGE_TYPES:
         }
         context = {}
         context = add_context(context, request, data)
-        return templates.TemplateResponse("components/utils/display_installed/installed.html", context)
+        return templates.TemplateResponse("pages/installed.html", context)
