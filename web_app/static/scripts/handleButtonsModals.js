@@ -43,11 +43,14 @@ function downloadImage(id, name, type) {
     $.ajax({
         url: '/download/' + type + '/' + id,
         type: 'GET',
+
         success: function (result) {
+            let msgclass;
+            result.status > 0 ? msgclass = "error" : msgclass = "success";
             $.notify(result.message, {
                 position: "bottom right",
                 style: "bootstrap",
-                className: "success",
+                className: msgclass,
                 autoHide: true
             });
         }
@@ -59,7 +62,7 @@ function deleteImage(id, name, type) {
         type: 'GET',
         success: function (result) {
             let msgclass;
-            result.status >= 0 ? msgclass = "error" : msgclass = "success";
+            result.status > 0 ? msgclass = "error" : msgclass = "success";
             $.notify(result.message, {
                 position: "bottom right",
                 style: "bootstrap",
