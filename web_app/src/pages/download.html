@@ -23,14 +23,12 @@
                     <tr>
                         <td>{{loop.index}}</td>
                         <td>
-                            <button id="download-btn-{{loop.index}}"
-                                onclick="downloadImage('{{loop.index}}', '{% if value.type == " qemu"
-                                %}{{value.foldername}}{% else %}{{value.name}}{% endif %}', '{{value.type}}' ); return
-                                false;" class="btn btn-success btn-sm">Download</button>
-                            <button id="delete-btn-{{loop.index}}"
-                                onclick="deleteImage('{{loop.index}}', '{% if value.type == " qemu"
-                                %}{{value.foldername}}{% else %}{{value.name}}{% endif %}', '{{value.type}}' ); return
-                                false;" class="btn btn-danger btn-sm">Delete</button>
+                            <button id="download-btn" data-index="{{loop.index}}" data-type="{{value.type}}"
+                                data-name="{{value.name}}" data-foldername="{{value.foldername}}"
+                                class="btn btn-success btn-sm">Download</button>
+                            <button id="delete-btn" data-index="{{loop.index}}" data-type="{{value.type}}"
+                                data-name="{{value.name}}" data-foldername="{{value.foldername}}"
+                                class="btn btn-danger btn-sm">Delete</button>
                         </td>
                         {% if value.type == "qemu" %}
                         <td>{{value.foldername}}</td>
@@ -43,17 +41,33 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <div id="download-result" class="download-result"></div>
+            <div id="action-result" class="action-result"></div>
         </div>
     </main>
     <script>
+        const downloadBtns = $('[id=download-btn]')
+        const deleteBtns = $('[id=delete-btn]')
+        downloadBtns.click(function () {
+            console.log("Index: " + this.dataset.index, "Type: " + this.dataset.type, "Name: " + this.dataset.name, "Foldername: " + this.dataset.foldername)
+            const id = this.dataset.index
+            const name = this.dataset.name ? this.dataset.name : this.dataset.foldername
+            const type = this.dataset.type
+            downloadImage(id, name, type)
+        })
+        deleteBtns.click(function () {
+            console.log("Index: " + this.dataset.index, "Type: " + this.dataset.type, "Name: " + this.dataset.name, "Foldername: " + this.dataset.foldername)
+            const id = this.dataset.index
+            const name = this.dataset.name ? this.dataset.name : this.dataset.foldername
+            const type = this.dataset.type
+            deleteImage(id, name, type)
+        })
+
         function downloadImage(id, name, type) {
             $.ajax({
                 url: '/download/' + type + '/' + id,
                 type: 'GET',
                 success: function (result) {
-                    console.log(result);
-                    $('#download-result').html(name + " " + result.message);
+                    $('#action-result').html(name + " " + result.message);
                 }
             });
         }
@@ -62,7 +76,7 @@
                 url: '/delete/' + type + '/' + id,
                 type: 'GET',
                 success: function (result) {
-                    $('#download-result').html(name + " " + result.message);
+                    $('#action-result').html(name + " " + result.message);
                 }
             });
         }
