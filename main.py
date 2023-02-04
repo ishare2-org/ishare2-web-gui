@@ -36,7 +36,7 @@ app.mount("/images", StaticFiles(directory=os.getenv("IMAGES_DIR",
 app.mount("/styles.css",
           StaticFiles(directory=os.getenv("STYLES_DIR", "./web_app/static/styles")), name="styles")
 app.mount(
-    "/app.js", StaticFiles(directory=os.getenv("SCRIPTS_DIR", "./web_app/static/scripts")), name="scripts")
+    "/scripts", StaticFiles(directory=os.getenv("SCRIPTS_DIR", "./web_app/static/scripts")), name="scripts")
 
 templates = Jinja2Templates(
     directory=os.getenv("TEMPLATES_DIR", "./web_app/src"))
