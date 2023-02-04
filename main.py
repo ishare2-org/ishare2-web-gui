@@ -95,13 +95,7 @@ async def live_search_qemu(q, request: Request):
 
 @ app.get("/relicense", tags=["Extras"])
 async def get_relicensed(request: Request):
-    data = {
-        "title": "Relicense - ishare2",
-        "command": relicense()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("confirmation/after_relicense.html", context)
+    return relicense()
 
 
 @ app.get("/changelogs/ishare2", tags=["Changelogs"])
