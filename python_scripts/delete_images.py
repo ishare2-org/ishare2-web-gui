@@ -24,7 +24,7 @@ def delete_image(id, image_type):
     if retcode != 0:
         return {
             "name": id,
-            "status": 0,
+            "status": 1,
             "message": NOT_FOUND_MSG
         }
 
@@ -32,12 +32,12 @@ def delete_image(id, image_type):
     if retcode == 0:
         return {
             "name": id,
-            "status": 1,
+            "status": 0,
             "message": DELETED_SUCCESS_MSG
         }
     else:
         return {
             "name": id,
-            "status": 0,
+            "status": 1,
             "message": stderr
         }
