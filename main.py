@@ -1,4 +1,4 @@
-from routers import downloads
+from routers import downloads, request_delete, request_download
 from python_scripts.download_csv import download_csv
 from python_scripts.misc_utils import get_help_content
 from python_scripts.misc_utils import get_changelog_gui_content
@@ -7,17 +7,10 @@ from python_scripts.misc_utils import relicense
 from python_scripts.live_search_form import live_search_qemu_image
 from python_scripts.live_search_form import live_search_dynamips_image
 from python_scripts.live_search_form import live_search_bin_image
-from python_scripts.delete_images import delete_docker_image
-from python_scripts.delete_images import delete_qemu_image
-from python_scripts.delete_images import delete_dynamips_image
-from python_scripts.delete_images import delete_bin_image
 from python_scripts.ishare2_installed_docker import get_installed_docker_images
 from python_scripts.ishare2_installed_qemu import get_installed_qemu_images
 from python_scripts.ishare2_installed_dynamips import get_installed_dynamips_images
 from python_scripts.ishare2_installed_bin import get_installed_bin_images
-from python_scripts.ishare2_pull_qemu import download_qemu_image
-from python_scripts.ishare2_pull_dynamips import download_dynamips_image
-from python_scripts.ishare2_pull_bin import download_bin_image
 from python_scripts.add_context import add_context
 from python_scripts.misc_utils import get_config
 from fastapi.staticfiles import StaticFiles
@@ -25,18 +18,17 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Request
-import json
 import uvicorn
-import requests
+import os
 
 download_csv()
 
 app = FastAPI(
     title="ishare2 API",
-    version="0.0.1"
+    version=os.getenv("API_VERSION", "0.0.1")
 )
 
-origins = ["*"]
+origins = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 
 app.add_middleware(
     CORSMiddleware,
@@ -46,19 +38,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/images", StaticFiles(directory="./web_app/static/images"), name="images")
-
-
+app.mount("/images", StaticFiles(directory=os.getenv("IMAGES_DIR",
+          "./web_app/static/images")), name="images")
 app.mount("/styles.css",
-          StaticFiles(directory="./web_app/static/styles"), name="styles")
-app.mount("/app.js",
-          StaticFiles(directory="./web_app/static/scripts"), name="scripts")
+          StaticFiles(directory=os.getenv("STYLES_DIR", "./web_app/static/styles")), name="styles")
+app.mount(
+    "/app.js", StaticFiles(directory=os.getenv("SCRIPTS_DIR", "./web_app/static/scripts")), name="scripts")
 
+templates = Jinja2Templates(
+    directory=os.getenv("TEMPLATES_DIR", "./web_app/src"))
 
 app.include_router(downloads.router)
+app.include_router(request_delete.router)
+app.include_router(request_download.router)
 
 
-@ app.get("/", response_class=HTMLResponse, tags=["Root"])
+@app.get("/", response_class=HTMLResponse, tags=["Root"])
 async def root(request: Request):
     data = {
         "title": "Homepage - ishare2",
@@ -66,93 +61,6 @@ async def root(request: Request):
     context = {}
     context = add_context(context, request, data)
     return templates.TemplateResponse("/pages/index.html", context)
-
-
-@ app.get("/download/bin/{id}", tags=["Download images"])
-async def download_bin(id, request: Request):
-    data = {
-        "title": "Download bin image - ishare2",
-        "command": download_bin_image(id),
-        "id": id,
-        "type": "bin"
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("confirmation/after_download_bin.html", context)
-
-
-@ app.get("/delete/bin/{name}", tags=["Delete images"])
-async def delete_bin(name, request: Request):
-    data = {
-        "title": "Delete bin image - ishare2",
-        "command": delete_bin_image(name),
-        "name": name
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("confirmation/after_delete_bin.html", context)
-
-
-@ app.get("/download/dynamips/{id}", tags=["Download images"])
-async def download_dynamips(id, request: Request):
-    data = {
-        "title": "Download dynamips image - ishare2",
-        "command": download_dynamips_image(id),
-        "id": id,
-        "type": "dynamips"
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("confirmation/after_download_dynamips.html", context)
-
-
-@ app.get("/delete/dynamips/{name}", tags=["Delete images"])
-async def delete_dynamips(name, request: Request):
-    data = {
-        "title": "Delete dynamips image - ishare2",
-        "command": delete_dynamips_image(name),
-        "name": name
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("confirmation/after_delete_dynamips.html", context)
-
-
-@ app.get("/download/qemu/{id}", tags=["Download images"])
-async def download_qemu(id, request: Request):
-    data = {
-        "title": "Download qemu image - ishare2",
-        "command": download_qemu_image(id),
-        "id": id,
-        "type": "qemu"
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("confirmation/after_download_qemu.html", context)
-
-
-@ app.get("/delete/qemu/{foldername}", tags=["Delete images"])
-async def delete_qemu(foldername, request: Request):
-    data = {
-        "title": "Delete qemu image - ishare2",
-        "command": delete_qemu_image(foldername),
-        "foldername": foldername
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("confirmation/after_delete_qemu.html", context)
-
-
-@ app.get("/delete/docker/{image_id}", tags=["Delete images"])
-async def delete_docker(image_id, request: Request):
-    data = {
-        "title": "Delete docker image - ishare2",
-        "command": delete_docker_image(image_id),
-        "image_id": image_id
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("confirmation/after_delete_docker.html", context)
 
 
 @ app.get("/installed/bin", tags=["Get installed images"])
