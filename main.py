@@ -1,3 +1,4 @@
+from routers import downloads
 from python_scripts.misc_utils import get_help_content
 from python_scripts.misc_utils import get_changelog_gui_content
 from python_scripts.misc_utils import get_changelog_content
@@ -55,7 +56,7 @@ app.mount("/app.js",
           StaticFiles(directory="./web_app/static/scripts"), name="scripts")
 
 
-templates = Jinja2Templates(directory="./web_app/src")
+app.include_router(downloads.router)
 
 
 @ app.get("/", response_class=HTMLResponse, tags=["Root"])
