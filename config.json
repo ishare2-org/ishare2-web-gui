@@ -70,15 +70,15 @@
             "sub_menu": [
                 {
                     "title": "Download bin images",
-                    "href": "/lists/bin"
+                    "href": "/download/bin"
                 },
                 {
                     "title": "Download QEMU images",
-                    "href": "/lists/qemu"
+                    "href": "/download/qemu"
                 },
                 {
                     "title": "Download Dynamips images",
-                    "href": "/lists/dynamips"
+                    "href": "/download/dynamips"
                 }
             ]
         }
