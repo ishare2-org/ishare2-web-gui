@@ -48,14 +48,12 @@
         const downloadBtns = $('[id=download-btn]')
         const deleteBtns = $('[id=delete-btn]')
         downloadBtns.click(function () {
-            console.log("Index: " + this.dataset.index, "Type: " + this.dataset.type, "Name: " + this.dataset.name, "Foldername: " + this.dataset.foldername)
             const id = this.dataset.index
             const name = this.dataset.name ? this.dataset.name : this.dataset.foldername
             const type = this.dataset.type
             downloadImage(id, name, type)
         })
         deleteBtns.click(function () {
-            console.log("Index: " + this.dataset.index, "Type: " + this.dataset.type, "Name: " + this.dataset.name, "Foldername: " + this.dataset.foldername)
             const id = this.dataset.index
             const name = this.dataset.name ? this.dataset.name : this.dataset.foldername
             const type = this.dataset.type
