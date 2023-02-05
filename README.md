@@ -4,7 +4,7 @@ iShare2 GUI is a web interface for the iShare2 project, designed to provide a gr
 
 ## Screenshots
 
-![alt iShare2-GUI's Homepage](web_app/static/images/Homepage%20-%20ishare2.png)
+![alt iShare2-GUI's Homepage](web_app/src/static/images/Homepage%20-%20ishare2.png)
 
 The iShare2 GUI is currently under development and may not be stable yet. It has only been tested on PNetLab, but it may be adaptable to work on other network emulators.
 
