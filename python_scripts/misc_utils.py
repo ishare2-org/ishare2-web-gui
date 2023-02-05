@@ -11,18 +11,18 @@ def relicense():
         if retcode == 0:
             license_value = stdout[10:-2]
             return {
-                "status": 1,
+                "status": 0,
                 "message": "Relicense command has been applied successfully",
                 "license_value": license_value
             }
         else:
             return {
-                "status": 0,
+                "status": 1,
                 "message": "Failed to retrieve license value: {}".format(stderr),
             }
     else:
         return {
-            "status": 0,
+            "status": 1,
             "message": "Relicense command failed: {}".format(stderr),
         }
 
