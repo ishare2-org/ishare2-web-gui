@@ -32,11 +32,11 @@ app.add_middleware(
 )
 
 app.mount("/images", StaticFiles(directory=os.getenv("IMAGES_DIR",
-          "./web_app/static/images")), name="images")
+          "./web_app/src/static/images")), name="images")
 app.mount("/styles.css",
-          StaticFiles(directory=os.getenv("STYLES_DIR", "./web_app/static/styles")), name="styles")
+          StaticFiles(directory=os.getenv("STYLES_DIR", "./web_app/src/static/styles")), name="styles")
 app.mount(
-    "/scripts", StaticFiles(directory=os.getenv("SCRIPTS_DIR", "./web_app/static/scripts")), name="scripts")
+    "/scripts", StaticFiles(directory=os.getenv("SCRIPTS_DIR", "./web_app/src/static/scripts")), name="scripts")
 
 templates = Jinja2Templates(
     directory=os.getenv("TEMPLATES_DIR", "./web_app/src"))
