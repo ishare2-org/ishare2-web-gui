@@ -57,17 +57,6 @@ async def root(request: Request):
     return templates.TemplateResponse("/pages/index.html", context)
 
 
-@ app.get("/live_search/bin", tags=["Live search"])
-async def live_search_bin(q, request: Request):
-    data = {
-        "title": "Live search bin images - ishare2",
-        "command": live_search_bin_image(q)
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("components/utils/live_search/live_search_bin.html", context)
-
-
 @ app.get("/relicense", tags=["Extras"])
 async def get_relicensed(request: Request):
     return relicense()
