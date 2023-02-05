@@ -30,17 +30,19 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-3">
+        <form class="form-inline my-2 my-lg-3" onsubmit="searchTable(event)">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">
                         <i class="fa fa-search"></i>
                     </span>
                 </div>
-                <input class="form-control mr-sm-2" type="search" placeholder="Search... CTRL + K" aria-label="Search">
+                <input id="searchTerm" class="form-control mr-sm-2" type="search" placeholder="Search... CTRL + K"
+                    aria-label="Search">
             </div>
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            <button onclick="searchTable()" class="btn btn-outline-light my-2 my-sm-0" type="button">Search</button>
         </form>
+        <script src="{{ url_for('scripts', path='search.js') }}"></script>
 
     </div>
 </nav>
