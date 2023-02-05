@@ -1,39 +1,39 @@
 <!DOCTYPE html>
+<html>
+  {% block head %} {% include "components/head.html" %} {% endblock %}
 
-{% block head %}
-{% include "components/head.html" %}
-{% endblock %}
-
-<body>
+  <body>
     {% include "components/navbar.html" %}
 
     <main>
-        <h1>Installed {{ data.type }} images</h1><br />
-        {% if data.command == [] %}
-        <p>No {{ data.type }} images available.</p>
-        {% else %}
-        <div class="table-container">
-            <table class="table table-striped">
-                <caption>List of installed {{ data.type }} images</caption>
-                <thead class="thead-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for value in data.command %}
-                    <tr>
-                        <td>{{loop.index}}</td>
-                        <td>{{value.name}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        {% endif %}
+      <h1>Installed {{ data.type }} images</h1>
+      <br />
+      {% if data.command == [] %}
+      <p>No {{ data.type }} images available.</p>
+      {% else %}
+      <div class="table-container">
+        <table class="table table-striped">
+          <caption>
+            List of installed {{ data.type }} images
+          </caption>
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for value in data.command %}
+            <tr>
+              <td>{{loop.index}}</td>
+              <td>{{value.name}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
     </main>
     {% include 'components/footer.html' %}
-</body>
-
+  </body>
 </html>
