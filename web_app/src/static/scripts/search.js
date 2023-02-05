@@ -2,53 +2,45 @@ function searchTable(event) {
     if (event) {
         event.preventDefault();
     }
-    const searchTerm = document.getElementById("searchTerm").value.toLowerCase();
 
+    const searchTerm = document.getElementById("searchTerm").value.trim().toLowerCase();
 
     const urlParams = new URLSearchParams(window.location.search);
     urlParams.set("searchTerm", searchTerm);
-    window.history.replaceState({}, "", `${window.location.pathname}?${urlParams.toString()}`);
+    window.history.replaceState({}, "", `${window.location.pathname}?${urlParams}`);
 
     const tableRows = document.querySelectorAll("table tbody tr");
-    for (let i = 0; i < tableRows.length; i++) {
-        const row = tableRows[i];
+    const similarWords = {
+        "windows": ["win-", "winserver"],
+        "windows 7": ["win-7"],
+        "windows 10": ["win-10"],
+        "cisco": ["vios"]
+        // Add more search terms and their similar words here
+    };
+
+    tableRows.forEach(row => {
         const rowCells = row.querySelectorAll("td");
 
         let hideRow = true;
-        for (let j = 0; j < rowCells.length; j++) {
-            const cell = rowCells[j];
-            if (j === 1) {
-                continue;
+        rowCells.forEach(cell => {
+            if (cell.cellIndex === 1) {
+                return;
             }
 
-            const similarWords = {
-                "windows": ["win-", "win-7", "winserver"],
-                // Add more search terms and their similar words here
-            };
-            const words = similarWords[searchTerm.toLowerCase()] || [];
-            words.push(searchTerm.toLowerCase());
+            const cellText = cell.textContent.trim().toLowerCase();
+            const words = [searchTerm, ...(similarWords[searchTerm] || [])];
 
-            const cellText = cell.textContent.toLowerCase();
-            for (let k = 0; k < words.length; k++) {
-                if (cellText.indexOf(words[k]) !== -1) {
+            words.forEach(word => {
+                if (cellText.indexOf(word) !== -1) {
                     hideRow = false;
-                    break;
                 }
-            }
+            });
+        });
 
-            if (cell.textContent.toLowerCase().indexOf(searchTerm) !== -1) {
-                hideRow = false;
-                break;
-            }
-        }
-
-        if (hideRow) {
-            row.style.display = "none";
-        } else {
-            row.style.display = "table-row";
-        }
-    }
+        row.style.display = hideRow ? "none" : "table-row";
+    });
 }
+
 
 const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("searchTerm");
