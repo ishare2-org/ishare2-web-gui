@@ -29,7 +29,7 @@
         <tr>
             <td class="text-center">Relicense (iourc file)</td>
             <td class="text-center">
-                <a href="/relicense" class="btn btn-outline-success">RELICENSE</a>
+                <button id="relicense" class="btn btn-outline-success text-uppercase">Relicense</button>
             </td>
         </tr>
     </tbody>
@@ -45,3 +45,22 @@
         </td>
     </tbody>
 </table>
+<script>
+    const relicenseBtn = document.getElementById('relicense');
+    relicenseBtn.addEventListener('click', () => {
+        fetch('/relicense', {
+            method: 'GET',
+        }).then((response) => {
+            return response.json();
+        }).then((result) => {
+            let msgclass;
+            result.status > 0 ? msgclass = "error" : msgclass = "success";
+            $.notify(result.message, {
+                position: "bottom right",
+                style: "bootstrap",
+                className: msgclass,
+                autoHide: true
+            });
+        });
+    });
+</script>
