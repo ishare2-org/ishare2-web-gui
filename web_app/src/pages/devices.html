@@ -13,11 +13,13 @@
             <div class="row d-flex justify-content-center">
                 {% for value in data.command %}
                 {% include "components/device_card.html" %}
+                <span style="display: none;">{{loop.index}}</span>
                 {% endfor %}
             </div>
-
-
         </div>
+        <!-- Modal -->
+        {% include "components/confirmDownloadModal.html" %} {% include
+        "components/confirmDeleteModal.html" %}
     </main>
     {% include 'components/footer.html' %}
 </body>
