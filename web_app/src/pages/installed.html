@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html>
-  {% block head %} {% include "components/head.html" %} {% endblock %}
+{% block head %} {% include "components/head.html" %} {% endblock %}
 
-  <body>
-    {% include "components/navbar.html" %}
+<body>
+  {% include "components/navbar.html" %}
 
-    <main>
-      <h1>Installed {{ data.type }} images</h1>
-      <br />
-      {% if data.command == [] %}
-      <p>No {{ data.type }} images available.</p>
-      {% else %}
-      <div class="table-container">
-        <table class="table table-striped">
-          <caption>
-            List of installed {{ data.type }} images
-          </caption>
-          <thead class="thead-dark">
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for value in data.command %}
-            <tr>
-              <td>{{loop.index}}</td>
-              <td>{{value.name}}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Installed {{ data.type }} images</h1>
+          <br />
+          {% if data.command == [] %}
+          <p>No {{ data.type }} images available.</p>
+          {% else %}
+          <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered">
+              <caption>
+                List of installed {{ data.type }} images
+              </caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th class="align-middle text-center">#</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for value in data.command %}
+                <tr>
+                  <td class="align-middle text-center">{{loop.index}}</td>
+                  <td class="align-middle">{{value.name}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% endif %}
+        </div>
       </div>
-      {% endif %}
-    </main>
-    {% include 'components/footer.html' %}
-  </body>
+    </div>
+  </main>
+  {% include 'components/footer.html' %}
+</body>
+
 </html>

@@ -1,82 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include "components/head.html" %}
+{% include "components/head.html" %}
 
-  <body>
-    {% include "components/navbar.html" %}
+<body>
+  {% include "components/navbar.html" %}
 
-    <main>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h1>Available {{ data.type }} images to download</h1>
-            <br />
-            <div class="table-responsive">
-              <table class="table table-hover table-striped">
-                <caption>
-                  Available {{ data.type }} images for download
-                </caption>
-                <thead class="thead-dark">
-                  <th scope="col">#</th>
-                  <th scope="col">Actions</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Size</th>
-                </thead>
-                <tbody>
-                  {% for value in data.command %}
-                  <tr>
-                    <td scope="row" class="align-middle text-center">{{loop.index}}</td>
-                    <td class="align-middle text-center">
-                      <button
-                        type="button"
-                        id="download-btn"
-                        data-index="{{loop.index}}"
-                        data-type="{{value.type}}"
-                        data-name="{{value.name}}"
-                        data-foldername="{{value.foldername}}"
-                        data-size="{{value.size}}"
-                        data-size-unit="{{value.unit}}"
-                        data-toggle="modal"
-                        data-target="#confirmDownloadModal"
-                        class="btn btn-success btn-sm"
-                      >
-                        Download
-                      </button>
-                      <button
-                        type="button"
-                        id="delete-btn"
-                        data-index="{{loop.index}}"
-                        data-type="{{value.type}}"
-                        data-name="{{value.name}}"
-                        data-foldername="{{value.foldername}}"
-                        data-size="{{value.size}}"
-                        data-size-unit="{{value.unit}}"
-                        data-toggle="modal"
-                        data-target="#confirmDeleteModal"
-                        class="btn btn-danger btn-sm"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                    {% if value.type == "qemu" %}
-                    <td class="align-middle">{{value.foldername}}</td>
-                    {% else %}
-                    <td class="align-middle">{{value.name}}</td>
-                    {% endif %}
-                    <td class="align-middle">{{value.size}} {{value.unit}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-              <div id="action-result" class="action-result"></div>
-            </div>
-            <!-- Modal -->
-            {% include "components/confirmDownloadModal.html" %} {% include
-            "components/confirmDeleteModal.html" %}
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Available {{ data.type }} images to download</h1>
+          <br />
+          <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered">
+              <caption>
+                Available {{ data.type }} images for download
+              </caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th><i class="fa fa-sort"></i> #</th>
+                  <th>Actions</th>
+                  <th><i class="fa fa-sort"></i> Name</th>
+                  <th><i class="fa fa-sort"></i> Size</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for value in data.command %}
+                <tr>
+                  <td class="align-middle text-center">{{loop.index}}</td>
+                  <td class="align-middle text-center">
+                    <button type="button" id="download-btn" data-index="{{loop.index}}" data-type="{{value.type}}"
+                      data-name="{{value.name}}" data-foldername="{{value.foldername}}" data-size="{{value.size}}"
+                      data-size-unit="{{value.unit}}" data-toggle="modal" data-target="#confirmDownloadModal"
+                      class="btn btn-success btn-sm">
+                      Download
+                    </button>
+                    <button type="button" id="delete-btn" data-index="{{loop.index}}" data-type="{{value.type}}"
+                      data-name="{{value.name}}" data-foldername="{{value.foldername}}" data-size="{{value.size}}"
+                      data-size-unit="{{value.unit}}" data-toggle="modal" data-target="#confirmDeleteModal"
+                      class="btn btn-danger btn-sm">
+                      Delete
+                    </button>
+                  </td>
+                  {% if value.type == "qemu" %}
+                  <td class="align-middle">{{value.foldername}}</td>
+                  {% else %}
+                  <td class="align-middle">{{value.name}}</td>
+                  {% endif %}
+                  <td class="align-middle">{{value.size}} {{value.unit}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <div id="action-result" class="action-result"></div>
           </div>
+          <!-- Modal -->
+          {% include "components/confirmDownloadModal.html" %} {% include
+          "components/confirmDeleteModal.html" %}
         </div>
       </div>
-    </main>
-    {% include 'components/footer.html' %}
-  </body>
+    </div>
+  </main>
+  {% include 'components/footer.html' %}
+</body>
+
 </html>

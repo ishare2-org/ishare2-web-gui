@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html>
-  {% block head %} {% include "components/head.html" %} {% endblock %}
+<html lang="en">
+{% block head %} {% include "components/head.html" %} {% endblock %}
 
-  <body>
-    {% include "components/navbar.html" %}
+<body>
+  {% include "components/navbar.html" %}
 
-    <main>
-      <div class="container">
-        <div class="row">
-          <div class="col">{% include 'components/options_table.html' %}</div>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Homepage</h1>
+          {% include 'components/options_table.html' %}
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    {% include 'components/footer.html' %}
-  </body>
+  {% include 'components/footer.html' %}
+</body>
+
 </html>

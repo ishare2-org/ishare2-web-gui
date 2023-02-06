@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+.fa-sort:hover {
+  cursor: pointer;
+}
+
 main {
   background: #ededf0;
   font-size: 16px;
@@ -12,6 +16,7 @@ main {
   font-weight: 400;
   overflow-x: hidden;
   min-height: 70vh;
+  padding: 2rem;
 }
 
 table {
