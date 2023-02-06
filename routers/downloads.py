@@ -30,6 +30,8 @@ for image_type in IMAGE_TYPES:
 async def get_devices(request: Request):
     data = {
         "title": "Devices - ishare2",
+        "command": get_images("qemu"),
+        "type": "qemu"
     }
     context = {}
     context = add_context(context, request, data)
