@@ -8,13 +8,13 @@ UNETLAB_PATH = "/opt/unetlab/addons"
 def delete_image(id, image_type):
     match image_type:
         case "bin":
-            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/addons/iol/bin | grep {id}'
+            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/iol/bin/{id}'
             DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/iol/bin/{id}'
         case "dynamips":
-            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/dynamips | grep {id}'
+            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/dynamips/{id}'
             DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/dynamips/{id}'
         case "qemu":
-            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/qemu | grep {id}'
+            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/qemu/{id}'
             DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/qemu/{id}'
         case "docker":
             CHECK_FILE_EXISTS_COMMAND = f'docker images | grep {id}'
