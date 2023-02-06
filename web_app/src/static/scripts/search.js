@@ -31,7 +31,10 @@ function searchTable(event) {
             }
 
             const cellText = cell.textContent.trim().toLowerCase();
-            const words = [searchTerm, ...(similarWords[searchTerm] || [])];
+            let words = [searchTerm, ...(similarWords[searchTerm] || [])];
+
+            // Add the search term and its similar words with "-" separated
+            words = words.concat(words.map(word => word.replace(/ /g, '-')));
 
             words.forEach(word => {
                 if (cellText.indexOf(word) !== -1) {
@@ -43,6 +46,7 @@ function searchTable(event) {
         row.style.display = hideRow ? "none" : "table-row";
     });
 }
+
 
 
 const urlParams = new URLSearchParams(window.location.search);
