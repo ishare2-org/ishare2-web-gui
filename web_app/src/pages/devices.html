@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %} {% include "components/head.html" %} {% endblock %}
+
+<body>
+
+    {% include "components/navbar.html" %}
+
+    <main>
+        <div class="container">
+            <h1>Available devices</h1>
+            <div class="row d-flex justify-content-center">
+                {% for i in range(0, 10) %}
+                {% include "components/device_card.html" %}
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </main>
+    {% include 'components/footer.html' %}
+</body>
+
+</html>

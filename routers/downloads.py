@@ -24,3 +24,13 @@ for image_type in IMAGE_TYPES:
         context = {}
         context = add_context(context, request, data)
         return templates.TemplateResponse("pages/download.html", context)
+
+
+@router.get("/devices/", tags=["download"])
+async def get_devices(request: Request):
+    data = {
+        "title": "Devices - ishare2",
+    }
+    context = {}
+    context = add_context(context, request, data)
+    return templates.TemplateResponse("pages/devices.html", context)
