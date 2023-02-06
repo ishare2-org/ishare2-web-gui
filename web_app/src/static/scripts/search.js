@@ -5,6 +5,10 @@ function searchTable(event) {
     if (event) {
         event.preventDefault();
     }
+    const tables = document.querySelectorAll("table")
+    if (tables.length <= 0 || tables.length === undefined) {
+        return;
+    }
 
     const searchTerm = document.getElementById("searchTerm").value.trim().toLowerCase();
 
@@ -58,14 +62,16 @@ if (searchTerm) {
 
 const visibleRows = document.querySelectorAll("table tbody tr:not([style='display: none;'])");
 console.log(visibleRows.length);
-if (visibleRows.length === 0) {
-    const table = document.querySelector("table");
-    const noResultsRow = document.createElement("tr");
-    const noResultsCell = document.createElement("td");
-    noResultsCell.colSpan = "4";
-    noResultsCell.textContent = "No results found";
-    noResultsCell.style.textAlign = "center";
-    noResultsRow.appendChild(noResultsCell);
-    table.querySelector("tbody").appendChild(noResultsRow);
+const table = document.querySelector("table");
+if (table !== null) {
+    if (visibleRows.length === 0) {
+        const noResultsRow = document.createElement("tr");
+        const noResultsCell = document.createElement("td");
+        noResultsCell.colSpan = "4";
+        noResultsCell.textContent = "No results found";
+        noResultsCell.style.textAlign = "center";
+        noResultsRow.appendChild(noResultsCell);
+        table.querySelector("tbody").appendChild(noResultsRow);
+    }
 }
 
