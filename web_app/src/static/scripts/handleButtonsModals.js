@@ -51,14 +51,16 @@ function downloadImage(id, name, type) {
                 position: "bottom right",
                 style: "bootstrap",
                 className: msgclass,
-                autoHide: true
+                autoHide: true,
+                clickToHide: true,
+                autoHideDelay: 3000
             });
         }
     });
 }
 function deleteImage(id, name, type) {
     $.ajax({
-        url: '/delete/' + type + '/' + id,
+        url: '/delete/' + type + '/' + name,
         type: 'GET',
         success: function (result) {
             let msgclass;
@@ -67,7 +69,9 @@ function deleteImage(id, name, type) {
                 position: "bottom right",
                 style: "bootstrap",
                 className: msgclass,
-                autoHide: true
+                autoHide: true,
+                clickToHide: true,
+                autoHideDelay: 3000
             });
         }
     });
