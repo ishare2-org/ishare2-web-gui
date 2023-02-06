@@ -13,8 +13,14 @@
             <div style="font-weight: bold; color: green;"><i class="fa fa-check-circle-o"></i>&nbsp;Downloaded
             </div>
         </div>
-        <button class="btn button btn-sm btn-primary">Download</button>
-        <button class="btn button btn-sm btn-danger">Delete</button>
+        <button class="btn button btn-sm btn-primary" type="button" id="download-btn" data-index="{{loop.index}}"
+            data-type="{{value.type}}" data-name="{{value.name}}" data-foldername="{{value.foldername}}"
+            data-size="{{value.size}}" data-size-unit="{{value.unit}}" data-toggle="modal"
+            data-target="#confirmDownloadModal">Download</button>
+        <button class="btn button btn-sm btn-danger" type="button" id="delete-btn" data-index="{{loop.index}}"
+            data-type="{{value.type}}" data-name="{{value.name}}" data-foldername="{{value.foldername}}"
+            data-size="{{value.size}}" data-size-unit="{{value.unit}}" data-toggle="modal"
+            data-target="#confirmDeleteModal">Delete</button>
     </div>
 </div>
 <style>
