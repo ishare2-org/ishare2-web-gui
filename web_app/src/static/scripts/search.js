@@ -1,3 +1,6 @@
+const inputBox = document.getElementById("searchTerm")
+inputBox.addEventListener("keyup", searchTable);
+
 function searchTable(event) {
     if (event) {
         event.preventDefault();
@@ -61,3 +64,4 @@ if (visibleRows.length === 0) {
     noResultsRow.appendChild(noResultsCell);
     table.querySelector("tbody").appendChild(noResultsRow);
 }
+
