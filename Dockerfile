@@ -18,3 +18,6 @@ CMD ["python", "main.py"]
 
 # Port to expose
 EXPOSE 5000
+
+# Volume to mount
+VOLUME /opt/unetlab/
