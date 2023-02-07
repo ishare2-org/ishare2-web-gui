@@ -16,3 +16,32 @@ So if you're looking for a tool that can help you manage and download the images
 
 Other useful chats tho not directly associated:
 [PNetLab Group Chat](https://t.me/pnetlab)
+
+## Docker container (Experimental)
+
+### Build Docker image
+
+```bash
+git clone https://github.com/ishare2-org/ishare2-web-gui.git
+cd ishare2-web-gui
+sudo docker build
+docker build - < Dockerfile
+```
+
+### Load image
+
+```bash
+sudo docker load -i /path/to/ishare2.tar
+```
+
+### Run Docker
+
+```bash
+sudo docker run -p 5000:5000 -v /opt/unetlab:/opt/unetlab -it ishare
+```
+
+### Run Docker (Detached mode)
+
+```bash
+sudo docker run -d -p 5000:5000 -v /opt/unetlab:/opt/unetlab -it ishare
+```
