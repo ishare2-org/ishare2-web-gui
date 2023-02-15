@@ -1,3 +1,10 @@
+/* color variables */
+:root {
+  --darker: #222246;
+  --medium-darker: #222250;
+  --main-dark: #2c2c61;
+  --light: #fff;
+}
 * {
   font-family: sans-serif;
   box-sizing: border-box;
