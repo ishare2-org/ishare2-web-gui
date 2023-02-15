@@ -1,0 +1,92 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">Server info</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
+            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+            unique.
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+    </div>
+</div>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">What can you do from this panel?</h1>
+        <p>Manage your images, download new ones, install them or delete the ones you no longer need.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+        <div class="card-deck">
+            <div class="col-sm-6">
+
+                <div class="card text-center dash-card">
+                    <div class="card-header">
+                        <h5 class="card-title">BIN Images</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Download and install Cisco IOS images for use with network simulation
+                            software
+                            such as PNetLab or <br> eve-ng.</p>
+                        <a href="/download/bin" class="btn btn-outline-primary btn-xs col-lg-6">
+                            <i class="fa fa-download"></i> Download images</a>
+                        <a href="/installed/bin" class="btn btn-primary btn-xs col-lg-6 cust-pri"
+                            style="background-image: linear-gradient(to bottom, #0066cc, #0052b5);">
+                            <i class="fa fa-cog"></i> View installed</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+                <div class="card text-center dash-card">
+                    <div class="card-header">
+                        <h5 class="card-title">QEMU Images</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Download and install QEMU images for use with network simulation
+                            software such
+                            as PNetLab or <br> eve-ng.</p>
+                        <a href="/download/qemu" class="btn btn-outline-primary btn-xs col-lg-6">
+                            <i class="fa fa-download"></i> Download images</a>
+                        <a href="/installed/qemu" class="btn btn-primary btn-xs col-lg-6 cust-pri"
+                            style="background-image: linear-gradient(to bottom, #0066cc, #0052b5);">
+                            <i class="fa fa-cog"></i> View installed</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card text-center dash-card">
+                    <div class="card-header">
+                        <h5 class="card-title">DYNAMIPS Images</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Download and install Dynamips images for use with network simulation
+                            software
+                            such as PNetLab or <br> eve-ng.
+                        </p>
+                        <a href="/download/dynamips" class="btn btn-outline-primary btn-xs col-lg-6">
+                            <i class="fa fa-download"></i> Download images</a>
+                        <a href="/installed/dynamips" class="btn btn-primary btn-xs col-lg-6 cust-pri"
+                            style="background-image: linear-gradient(to bottom, #0066cc, #0052b5);">
+                            <i class="fa fa-cog"></i> View installed</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+                <div class="card text-center dash-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Relicense (iourc file)</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Relicense the iourc file in your server to use your Cisco images with
+                            you
+                            netwrok emulator.</p>
+                        <button id="relicense" class="btn btn-success">Relicense</button>
+                        <div class="input-group">
+                            <input type="text" disabled class="form-control" value="Current license"
+                                id="current-iol-lice">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
