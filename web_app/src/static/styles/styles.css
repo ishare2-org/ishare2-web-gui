@@ -173,70 +173,8 @@ footer {
 
   .footer-menu ul {
     display: flex;
-    margin-top: 8px;
     text-align: center;
   }
-}
-
-.telegram-button {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  height: 20px;
-  box-sizing: border-box;
-
-  cursor: pointer;
-  background-color: #0088cc;
-  border-radius: 3px;
-  padding: 3px 6px;
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 11px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.telegram-button:hover {
-  background-color: #007dbb;
-}
-
-.telegram-button:active {
-  background-color: #026698;
-}
-
-.telegram-button i {
-  display: inline-block;
-  height: 12px;
-  width: 14px;
-  vertical-align: middle;
-  margin-right: 2px;
-  background: url("https://telegram.org/img/oauth/tg_button_small.png")
-    no-repeat;
-  background-size: contain;
-}
-
-.telegram-button span {
-  display: inline-block;
-  vertical-align: top;
-}
-.bg-black {
-  background-color: #111;
-}
-
-.table-container {
-  display: table;
-  width: 50vw;
-  margin: 5rem auto;
-}
-.changelogs {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  color: #fff;
-}
-.changelogs a {
-  padding: 0.5rem 1rem;
 }
 
 @media screen and (min-width: 570px) {
