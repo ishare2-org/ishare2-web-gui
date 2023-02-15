@@ -240,26 +240,26 @@ footer {
 }
 
 @media screen and (min-width: 570px) {
-  .input-group .form-control {
+  .input-group .custom-search {
     background-color: #bdbdbd;
     transition: width 0.5s ease-in-out !important;
     width: 12.5rem !important;
     box-shadow: 0 0 5px #bdbdbd !important;
     border: none !important;
   }
-  .input-group .form-control:focus {
+  .input-group .custom-search:focus {
     width: 25rem !important;
     box-shadow: 0 0 6px #bdbdbd !important;
   }
 }
 
-.input-group .form-control {
+.input-group .custom-search {
   background-color: #bdbdbd;
   transition: width 0.5s ease-in-out !important;
   box-shadow: 0 0 5px #bdbdbd !important;
   border: none !important;
 }
-.input-group .form-control:focus {
+.input-group .custom-search:focus {
   box-shadow: 0 0 6px #bdbdbd !important;
 }
 
