@@ -29,6 +29,11 @@
 .nav-item {
   font-weight: 700;
 }
+
+.bg-black {
+  background-color: var(--darker);
+}
+
 .fa-sort:hover {
   cursor: pointer;
 }
