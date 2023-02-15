@@ -5,6 +5,20 @@
   --main-dark: #2c2c61;
   --light: #fff;
 }
+
+@media (min-width: 576px) {
+  .bd-title {
+    font-size: 3rem;
+  }
+}
+.bd-title {
+  margin-top: 1.3rem;
+  margin-bottom: 0.8rem;
+  font-weight: 300;
+  font-weight: 500 !important;
+  font-size: 5rem !important;
+}
+
 * {
   font-family: sans-serif;
   box-sizing: border-box;
