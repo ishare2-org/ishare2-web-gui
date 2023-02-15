@@ -163,8 +163,11 @@ footer {
   color: #27bcda;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 570px) {
   .footer-bottom p {
+    float: none;
+  }
+  .footer-menu {
     float: none;
   }
 
