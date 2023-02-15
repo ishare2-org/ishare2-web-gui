@@ -276,8 +276,11 @@ footer {
   margin: 4rem auto;
   padding: 2rem;
   overflow: auto;
-  background-color: #f8f8f8;
+  background-color: #87cefa;
   border-radius: 1rem;
+  color: var(--darker);
+}
+
 }
 
 @media screen and (max-width: 50rem) {
