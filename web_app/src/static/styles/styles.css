@@ -26,6 +26,9 @@
   padding: 0;
 }
 
+.nav-item {
+  font-weight: 700;
+}
 .fa-sort:hover {
   cursor: pointer;
 }
