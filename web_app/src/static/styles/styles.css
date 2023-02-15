@@ -39,7 +39,8 @@
 }
 
 main {
-  background: #ededf0;
+  background: var(--main-dark);
+  color: var(--light);
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -60,8 +61,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #111;
-  height: auto;
+  background: var(--darker);
   width: 100vw;
   padding-top: 40px;
   color: #fff;
@@ -119,9 +119,9 @@ footer {
 }
 
 .footer-bottom {
-  background: #000;
+  background: var(--medium-darker);
   width: 100vw;
-  padding: 3rem 2rem 5rem;
+  padding: 3rem 2rem 4rem;
   text-align: center;
 }
 
