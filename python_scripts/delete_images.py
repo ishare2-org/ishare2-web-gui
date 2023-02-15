@@ -6,19 +6,22 @@ UNETLAB_PATH = "/opt/unetlab/addons"
 
 
 def delete_image(id, image_type):
-    match image_type:
-        case "bin":
-            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/iol/bin/{id}'
-            DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/iol/bin/{id}'
-        case "dynamips":
-            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/dynamips/{id}'
-            DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/dynamips/{id}'
-        case "qemu":
-            CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/qemu/{id}'
-            DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/qemu/{id}'
-        case "docker":
-            CHECK_FILE_EXISTS_COMMAND = f'docker images | grep {id}'
-            DELETE_COMMAND = f'docker rmi {id}'
+    if image_type == "bin":
+        CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/iol/bin/{id}'
+        DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/iol/bin/{id}'
+
+    elif image_type == "dynamips":
+        CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/dynamips/{id}'
+        DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/dynamips/{id}'
+    elif image_type == "qemu":
+        CHECK_FILE_EXISTS_COMMAND = f'ls {UNETLAB_PATH}/qemu/{id}'
+        DELETE_COMMAND = f'rm -rf {UNETLAB_PATH}/qemu/{id}'
+    elif image_type == "docker":
+        CHECK_FILE_EXISTS_COMMAND = f'docker images | grep {id}'
+        DELETE_COMMAND = f'docker rmi {id}'
+    else:
+        # handle an invalid image_type value here
+        raise ValueError("Invalid image_type specified")
 
     retcode, stdout, stderr = _run_command(CHECK_FILE_EXISTS_COMMAND)
     if retcode != 0:

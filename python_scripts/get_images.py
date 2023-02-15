@@ -9,14 +9,17 @@ def get_images(image_type):
     config = get_config()
     CSV_PATH = config["credentials"]["csv_path"]
 
-    match image_type:
-        case "bin":
-            CSV_FILE = os.path.join(CSV_PATH, "bin.csv")
-        case "dynamips":
-            CSV_FILE = os.path.join(CSV_PATH, "dynamips.csv")
-        case "qemu":
-            CSV_FILE = os.path.join(CSV_PATH, "qemu.csv")
-            return get_qemu_list(CSV_FILE)
+    if image_type == "bin":
+        CSV_FILE = os.path.join(CSV_PATH, "bin.csv")
+
+    elif image_type == "dynamips":
+        CSV_FILE = os.path.join(CSV_PATH, "dynamips.csv")
+    elif image_type == "qemu":
+        CSV_FILE = os.path.join(CSV_PATH, "qemu.csv")
+        return get_qemu_list(CSV_FILE)
+    else:
+        # handle an invalid image_type value here
+        raise ValueError("Invalid image_type specified")
 
     if not os.path.exists(CSV_FILE):
         download_csv()

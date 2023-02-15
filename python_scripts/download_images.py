@@ -5,15 +5,19 @@ NOT_FOUND_MSG = "The image has not been found in the system."
 
 
 def download_image(id, image_type):
-    match image_type:
-        case "bin":
-            COMMAND = f'ishare2 pull bin {id}'
-        case "dynamips":
-            COMMAND = f'ishare2 pull dynamips {id}'
-        case "qemu":
-            COMMAND = f'ishare2 pull qemu {id}'
-        case "docker":
-            COMMAND = f'docker pull {id}'
+    if image_type == "bin":
+        COMMAND = f'ishare2 pull bin {id}'
+
+    elif image_type == "dynamips":
+        COMMAND = f'ishare2 pull dynamips {id}'
+    elif image_type == "qemu":
+        COMMAND = f'ishare2 pull qemu {id}'
+    elif image_type == "docker":
+        COMMAND = f'docker pull {id}'
+    else:
+        # handle an invalid image_type value here
+        raise ValueError("Invalid image_type specified")
+
     retcode, stdout, stderr = _run_command(COMMAND)
     if PERMISSIONS_APPLIED in stdout:
         return {
