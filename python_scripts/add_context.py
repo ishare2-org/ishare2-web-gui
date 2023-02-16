@@ -8,6 +8,9 @@ def add_context(context: dict, request, data: dict):
     context["data"] = data
     context["request"] = request
     context["ishare_version"] = requests.get(URL_ISHARE2_VERSION).text
+    context["emulator_version"] = get_version()
+    context["iol_license"] = iol_license()
+    context["ishare2_cli_version"] = ishare2_cli_version()
     context["footer_title"] = config["footer"]["title"]
     context["footer_text"] = config["footer"]["text"]
     context["footer_company"] = config["footer"]["company"]
