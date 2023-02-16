@@ -57,6 +57,10 @@ async def root(request: Request):
 async def get_relicensed(request: Request):
     return relicense()
 
+@ app.get("/install/ishare2", tags=["Extras"])
+async def get_install_ishare2(request: Request):    
+    return install_ishare2()
+
 
 @ app.get("/changelogs/ishare2", tags=["Changelogs"])
 async def get_changelog_file(request: Request):
