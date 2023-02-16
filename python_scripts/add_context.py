@@ -1,4 +1,4 @@
-from .misc_utils import get_config
+from .misc_utils import get_config, get_version, iol_license, ishare2_cli_version
 import requests
 
 
