@@ -96,12 +96,14 @@
                         <p class="card-text">Relicense the iourc file in your server to use your Cisco images with
                             you
                             netwrok emulator.</p>
-                        <button id="relicense" class="btn btn-success">Relicense</button>
-                        <div class="input-group">
-                            <input type="text" disabled class="form-control" value="Current license"
-                                id="current-iol-lice">
+                        <button id="relicense" class="btn btn-success"><i class="fa fa-key"></i> Relicense</button>
+                        <div class="input-group current-iol-license">
+                            <input type="text" disabled class="form-control" value="{{ iol_license }}"
+                                id="current-iol-license">
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-outline-secondary">Copy</button>
+                                <button type="button" class="btn btn-outline-primary btn-xs btn-copy"><i
+                                        class="fa fa-copy"></i>
+                                    Copy</button>
                             </div>
                         </div>
                     </div>
