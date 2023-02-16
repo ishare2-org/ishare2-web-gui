@@ -1,10 +1,28 @@
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3">Server info</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-            unique.
+        <h3>Emulator</h3>
+        {% if emulator_version != 'N/A' %}
+        <p>Server is running <strong>{{ emulator_version }}</strong> emulator.</p>
+        {% else %}
+        <p style="color:red !important;"><strong>{{ emulator_version }}:</strong> Server is not running an
+            emulator. Or it is
+            <strong>unknown</strong>.
         </p>
+        {% endif %}
+        <h3>ishare2 CLI version</h3>
+        {% if ishare2_cli_version != 'N/A' %}
+        <p>Server is running <strong>{{ ishare2_cli_version }}</strong> version of ishare2 CLI.</p>
+        {% else %}
+        <p style="color:red !important;"><strong>{{ ishare2_cli_version }}:</strong> <strong>ishare2 CLI</strong> is not
+            installed on the
+            server.
+            Click the
+            button below to install it.</p>
+        <button id="install-ishare2" class="btn btn-success" style="margin: 0.5rem 0;"><i class="fa fa-download"></i>
+            Install ishare2
+            CLI</button>
+        {% endif %}
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
     </div>
 </div>
