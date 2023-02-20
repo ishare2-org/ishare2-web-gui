@@ -1,0 +1,6 @@
+{% if is_root != 'root' %}
+<div class="alert alert-danger" role="alert">
+    ishare2 needs to run as root to work properly. Please run it as root. Currently running as: <strong>{{ is_root
+        }}</strong>
+</div>
+{% endif %}
