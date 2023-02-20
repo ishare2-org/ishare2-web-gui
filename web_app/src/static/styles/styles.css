@@ -268,3 +268,7 @@ footer {
     padding: 2rem 1rem;
   }
 }
+
+.dark-modal {
+  background-color: var(--medium-darker) !important;
+}
