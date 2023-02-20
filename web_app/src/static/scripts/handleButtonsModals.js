@@ -39,7 +39,16 @@ $('#confirmDeleteModal').on('show.bs.modal', function (event) {
     })
 })
 
+let isAjaxRunning = false; // track whether an AJAX request is running
+
+window.onbeforeunload = function () {
+    if (isAjaxRunning) {
+        return "Dude, are you sure you want to leave? Think of the kittens!";
+    }
+};
+
 function downloadImage(id, name, type) {
+    isAjaxRunning = true;
     $.ajax({
         url: '/download/' + type + '/' + id,
         type: 'GET',
@@ -57,8 +66,11 @@ function downloadImage(id, name, type) {
             });
         }
     });
+    isAjaxRunning = false;
 }
+
 function deleteImage(id, name, type) {
+    isAjaxRunning = true;
     $.ajax({
         url: '/delete/' + type + '/' + name,
         type: 'GET',
@@ -75,4 +87,5 @@ function deleteImage(id, name, type) {
             });
         }
     });
+    isAjaxRunning = false;
 }
