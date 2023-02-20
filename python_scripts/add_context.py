@@ -1,4 +1,4 @@
-from .misc_utils import get_config, get_version, iol_license, ishare2_cli_version
+from .misc_utils import get_config, get_version, iol_license, ishare2_cli_version, is_root
 import requests
 
 
@@ -6,6 +6,7 @@ def add_context(context: dict, request, data: dict):
     config = get_config()
     URL_ISHARE2_VERSION = config["constants"]["ishare2_version"]
     context["data"] = data
+    context["is_root"] = is_root()
     context["request"] = request
     context["ishare_version"] = requests.get(URL_ISHARE2_VERSION).text
     context["emulator_version"] = get_version()
