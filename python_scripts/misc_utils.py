@@ -2,6 +2,14 @@ from .command_utils import _run_command
 import json
 
 
+def is_root():
+    retcode, stdout, stderr = _run_command("whoami")
+    if retcode == 0 and stdout == "root":
+        return
+    else:
+        return stdout
+
+
 def relicense():
     command = "ishare2 relicense"
     retcode, stdout, stderr = _run_command(command)
@@ -57,7 +65,8 @@ def iol_license():
         return stdout
     else:
         return "N/A"
-    
+
+
 def install_ishare2():
     command = "curl -o /usr/sbin/ishare2 https://raw.githubusercontent.com/pnetlabrepo/ishare2/main/ishare2 > /dev/null 2>&1 && chmod +x /usr/sbin/ishare2 && ishare2"
     retcode, stdout, stderr = _run_command(command)
@@ -69,7 +78,7 @@ def install_ishare2():
     else:
         return {
             "status": 1,
-            "message": "iShare2 installation failed: {}".format(stderr),
+            "message": "iShare2 installation failed: {}. {}".format(stderr, stdout),
         }
 
 
