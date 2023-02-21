@@ -5,7 +5,7 @@ import json
 def is_root():
     retcode, stdout, stderr = _run_command("whoami")
     if retcode == 0 and stdout == "root":
-        return
+        return "root"
     else:
         return stdout
 
