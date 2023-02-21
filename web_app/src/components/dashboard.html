@@ -16,9 +16,8 @@
         {% else %}
         <p style="color:red !important;"><strong>{{ ishare2_cli_version }}:</strong> <strong>ishare2 CLI</strong> is not
             installed on the
-            server.
-            Click the
-            button below to install it.</p>
+            server or it was not found. Are you running as root? <br>
+            Click the button below to <strong>install it</strong>.</p>
         <button id="install-ishare2" class="btn btn-success" style="margin: 0.5rem 0;"><i class="fa fa-download"></i>
             Install ishare2
             CLI</button>
@@ -87,16 +86,14 @@
                 </div>
             </div>
             <div class="col-sm-6">
-
                 <div class="card text-center dash-card">
                     <div class="card-header">
-                        <h5 class="card-title">Relicense (iourc file)</h5>
+                        <h5 class="card-title">Generate License (iourc file)</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Relicense the iourc file in your server to use your Cisco images with
-                            you
-                            netwrok emulator.</p>
-                        <button id="relicense" class="btn btn-success"><i class="fa fa-key"></i> Relicense</button>
+                        <p class="card-text">Click the "License" button to automatically generate a license for iol
+                            images. No further interaction is needed after clicking the button.</p>
+                        <button id="relicense" class="btn btn-success"><i class="fa fa-key"></i> License</button>
                         <div class="input-group current-iol-license">
                             <input type="text" disabled class="form-control" value="{{ iol_license }}"
                                 id="current-iol-license">
@@ -109,6 +106,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <script>
             var copyButton = document.querySelector('.btn-copy');
