@@ -28,6 +28,17 @@ def download_csv():
     if not os.path.exists(CSV_PATH):
         os.makedirs(CSV_PATH)
 
-    downloader(URL_BIN_FILE, BIN_CSV)
-    downloader(URL_QEMU_FILE, QEMU_CSV)
-    downloader(URL_DYNAMIPS_FILE, DYNAMIPS_CSV)
+    # Check if the files exist
+    if os.path.exists(BIN_CSV) and os.path.exists(QEMU_CSV) and os.path.exists(DYNAMIPS_CSV):
+        # Check if files are older than 30 minutes
+        if os.path.getmtime(BIN_CSV) < time.time() - 1800:
+            downloader(URL_BIN_FILE, BIN_CSV)
+        if os.path.getmtime(QEMU_CSV) < time.time() - 1800:
+            downloader(URL_QEMU_FILE, QEMU_CSV)
+        if os.path.getmtime(DYNAMIPS_CSV) < time.time() - 1800:
+            downloader(URL_DYNAMIPS_FILE, DYNAMIPS_CSV)
+    # If files don't exist, download them
+    else:
+        downloader(URL_BIN_FILE, BIN_CSV)
+        downloader(URL_QEMU_FILE, QEMU_CSV)
+        downloader(URL_DYNAMIPS_FILE, DYNAMIPS_CSV)
