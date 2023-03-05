@@ -84,12 +84,13 @@ def install_ishare2():
         }
 
 
-def get_changelog_content():
-    return get_config()["constants"]["changelog_md_file"]
-
-
-def get_changelog_gui_content():
-    return get_config()["constants"]["changelog_gui_md_file"]
+def get_changelog_content(changelog_type):
+    if changelog_type == "ishare2-cli":
+        return get_config()["constants"]["changelog_md_file"]
+    elif changelog_type == "ishare2-gui":
+        return get_config()["constants"]["changelog_gui_md_file"]
+    else:
+        raise Exception("Invalid changelog type", changelog_type)
 
 
 def get_help_content():
