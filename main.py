@@ -38,11 +38,11 @@ app.mount(
 templates = Jinja2Templates(
     directory=os.getenv("TEMPLATES_DIR", "./web_app/src"))
 
-app.include_router(downloads.router)
-app.include_router(request_delete.router)
-app.include_router(request_download.router)
-app.include_router(installed.router)
+routes = [downloads, request_delete, request_download,
+          installed, changelogs]
 
+for route in routes:
+    app.include_router(route.router)
 
 @app.get("/", response_class=HTMLResponse, tags=["Root"])
 async def root(request: Request):
