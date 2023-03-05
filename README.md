@@ -2,6 +2,22 @@
 
 iShare2 GUI is a web interface for the iShare2 project, designed to provide a graphical user experience for managing and downloading bin, QEMU, Dynamips, and Docker images for network emulators. It leverages the capabilities of the [iShare2 CLI](https://github.com/pnetlabrepo/ishare2), executing its commands under the hood to simplify image management for network administrators.
 
+## Table of Contents
+
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Docker container (Experimental)](#docker-container-experimental)
+  - [Build Docker image](#build-docker-image)
+  - [Load image](#load-image)
+  - [Run Docker](#run-docker)
+  - [Run Docker (Detached mode)](#run-docker-detached-mode)
+
+## Features
+
+- Manage bin, QEMU, Dynamips, and Docker images
+- Download bin, QEMU, Dynamips, and Docker images
+- Frontend for iShare2 CLI
+
 ## Screenshots
 
 ![alt iShare2-GUI's Homepage](web_app/src/static/images/Homepage%20-%20ishare2.png)
