@@ -99,3 +99,9 @@ def get_help_content():
 
 def get_social_content():
     return get_config()["social"]
+
+
+def downloader(url, file_name):
+    with open(file_name, "wb") as file:
+        response = requests.get(url)
+        file.write(response.content)
