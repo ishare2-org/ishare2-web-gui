@@ -75,28 +75,6 @@ async def get_help_file(request: Request):
     return templates.TemplateResponse("pages/help.html", context)
 
 
-@ app.get("/changelogs/gui", tags=["Changelogs"])
-async def get_changelog_gui_file(request: Request):
-    data = {
-        "title": "Changelog - ishare2",
-        "url": get_changelog_gui_content()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("pages/changelog.html", context)
-
-
-@ app.get("/help", tags=["Help"])
-async def get_help_file(request: Request):
-    data = {
-        "title": "Help - ishare2",
-        "url": get_help_content()
-    }
-    context = {}
-    context = add_context(context, request, data)
-    return templates.TemplateResponse("pages/help.html", context)
-
-
 if __name__ == "__main__":
     config = get_config()
     HOST = config["api"]["host"]
