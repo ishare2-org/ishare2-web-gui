@@ -74,12 +74,12 @@ def install_ishare2():
     if retcode == 0 and "Done" in stdout:
         return {
             "status": 0,
-            "message": "iShare2 has been installed successfully",
+            "message": "ishare2 has been installed successfully",
         }
     else:
         return {
             "status": 1,
-            "message": "iShare2 installation failed: {}. {}".format(stderr, stdout),
+            "message": "ishare2 installation failed: {}. {}".format(stderr, stdout),
         }
 
 
