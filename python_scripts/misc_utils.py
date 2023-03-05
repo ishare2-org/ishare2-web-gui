@@ -1,3 +1,4 @@
+import requests
 from .command_utils import _run_command
 import json
 
