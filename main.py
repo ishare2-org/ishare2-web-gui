@@ -1,6 +1,6 @@
 from routers import downloads, request_delete, request_download, installed, changelogs
 from python_scripts.download_csv import download_csv
-from python_scripts.misc_utils import get_help_content, get_version, get_changelog_gui_content, get_changelog_content, relicense, get_config, install_ishare2
+from python_scripts.misc_utils import get_help_content, get_version, relicense, get_config, install_ishare2
 from python_scripts.add_context import add_context
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
