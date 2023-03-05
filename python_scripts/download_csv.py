@@ -1,13 +1,7 @@
 import requests
 import time
 import os.path
-from .misc_utils import get_config
-
-
-def downloader(url, file_name):
-    with open(file_name, "wb") as file:
-        response = requests.get(url)
-        file.write(response.content)
+from .misc_utils import get_config, downloader
 
 
 def download_csv():
