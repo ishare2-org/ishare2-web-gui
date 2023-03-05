@@ -58,20 +58,21 @@ async def root(request: Request):
 async def get_relicensed(request: Request):
     return relicense()
 
+
 @ app.get("/install/ishare2", tags=["Extras"])
-async def get_install_ishare2(request: Request):    
+async def get_install_ishare2(request: Request):
     return install_ishare2()
 
 
-@ app.get("/changelogs/ishare2", tags=["Changelogs"])
-async def get_changelog_file(request: Request):
+@ app.get("/help", tags=["Help"])
+async def get_help_file(request: Request):
     data = {
-        "title": "Changelog - ishare2",
-        "url": get_changelog_content()
+        "title": "Help - ishare2",
+        "url": get_help_content()
     }
     context = {}
     context = add_context(context, request, data)
-    return templates.TemplateResponse("pages/changelog_ishare2.html", context)
+    return templates.TemplateResponse("pages/help.html", context)
 
 
 @ app.get("/changelogs/gui", tags=["Changelogs"])
