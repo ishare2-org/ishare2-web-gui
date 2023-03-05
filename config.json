@@ -62,7 +62,7 @@
             {
                 "title": "Changelog",
                 "icon": "fa-history",
-                "href": "/changelogs/gui"
+                "href": "/changelogs/ishare2-gui"
             }
         ],
         "dropdown": {
