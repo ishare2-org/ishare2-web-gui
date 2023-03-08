@@ -6,6 +6,7 @@ ishare2 GUI is a web interface for the ishare2 project, designed to provide a gr
 
 - [Features](#features)
 - [Screenshots](#screenshots)
+- [Install from ishare2](#install-from-ishare2)
 - [Installation](#installation)
   - [Clone the repository](#clone-the-repository)
   - [Create a virtual environment](#create-a-virtual-environment)
@@ -38,6 +39,12 @@ So if you're looking for a tool that can help you manage and download the images
 
 Other useful chats tho not directly associated:
 [PNetLab Group Chat](https://t.me/pnetlab)
+
+## Install from ishare2 (Coming soon)
+
+```bash
+placeholder
+```
 
 ## Installation
 
