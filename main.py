@@ -30,7 +30,7 @@ download_csv()
 app = FastAPI(
     title="ishare2 API",
     version=os.getenv("API_VERSION", "0.0.1"),
-    debug=True,  # Change to False in production
+    debug=False, #Change to False in production
 )
 
 origins = os.getenv("ALLOWED_ORIGINS", "*").split(",")
@@ -97,6 +97,6 @@ if __name__ == "__main__":
         "main:app",
         host=HOST,
         port=PORT,
-        reload=True,  # Change to False in production
+        reload=False,  # Change to False in production
         workers=4,
     )
