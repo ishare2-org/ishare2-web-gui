@@ -11,7 +11,6 @@ def get_images(image_type):
 
     if image_type == "bin":
         CSV_FILE = os.path.join(CSV_PATH, "bin.csv")
-
     elif image_type == "dynamips":
         CSV_FILE = os.path.join(CSV_PATH, "dynamips.csv")
     elif image_type == "qemu":
@@ -21,8 +20,15 @@ def get_images(image_type):
         # handle an invalid image_type value here
         raise ValueError("Invalid image_type specified")
 
-    if not os.path.exists(CSV_FILE):
-        download_csv()
+    if not os.path.exists(CSV_FILE) or os.stat(CSV_FILE).st_size == 0:
+        try:
+            download_csv()
+        except Exception as e:
+            raise Exception(f"Error downloading CSV file: {e}")
+
+    if not os.path.exists(CSV_FILE) or os.stat(CSV_FILE).st_size == 0:
+        raise Exception(f"CSV file {CSV_FILE} is empty or does not exist")
+
     with open(CSV_FILE, "r") as f:
         csv_file = csv.reader(f, delimiter=',')
         next(csv_file)
@@ -43,8 +49,14 @@ def get_images(image_type):
 def get_qemu_list(qemu_csv):
     QEMU_CSV = qemu_csv
 
-    if not os.path.exists(QEMU_CSV):
-        download_csv()
+    if not os.path.exists(QEMU_CSV) or os.stat(QEMU_CSV).st_size == 0:
+        try:
+            download_csv()
+        except Exception as e:
+            raise Exception(f"Error downloading CSV file: {e}")
+
+        if not os.path.exists(QEMU_CSV) or os.stat(QEMU_CSV).st_size == 0:
+            raise Exception(f"CSV file {CSV_FILE} is empty or does not exist")
 
     with open(QEMU_CSV, "r") as f:
         csv_file = csv.reader(f, delimiter=',')
