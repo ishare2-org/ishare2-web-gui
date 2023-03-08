@@ -1,5 +1,6 @@
 import requests
 import json
+import os.path
 from .command_utils import _run_command
 
 
@@ -51,6 +52,11 @@ def get_version():
 
 
 def ishare2_cli_version():
+    if not os.path.exists("/usr/sbin/ishare2"):
+        if os.path.exists("/usr/sbin/ishare2_version"):
+            retcode, stdout, stderr = _run_command(
+                "rm /usr/sbin/ishare2_version")
+        return "N/A"
     retcode, stdout, stderr = _run_command(
         "cat /usr/sbin/ishare2_version")
     if retcode == 0 and stdout != "":
