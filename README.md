@@ -6,8 +6,10 @@ ishare2 GUI is a web interface for the ishare2 project, designed to provide a gr
 
 - [Features](#features)
 - [Screenshots](#screenshots)
-- [Install from ishare2](#install-from-ishare2)
-- [Installation](#installation)
+- [Install from ishare2 (Coming soon)](#install-from-ishare2-coming-soon)
+- [Installation (as root)](#installation-as-root)
+  - [Prerequisites](#prerequisites)
+  - [Change to root user](#change-to-root-user)
   - [Clone the repository](#clone-the-repository)
   - [Create a virtual environment](#create-a-virtual-environment)
   - [Install dependencies](#install-dependencies)
@@ -46,13 +48,35 @@ Other useful chats tho not directly associated:
 placeholder
 ```
 
-## Installation
+## Installation (as root)
+
+ishare2 GUI needs to be run as root, as it needs to access the /opt/unetlab directory to manage the images.
+You can install ishare2 GUI on your system following these steps:
+
+### Prerequisites
+
+- Python 3.8 or higher
+- pip
+- virtualenv
+
+```bash
+sudo apt-get install python3 python3-pip python3-venv -y
+```
+
+### Change to root user
+
+```bash
+sudo su
+```
 
 ### Clone the repository
 
+Choose a directory where you want to clone the repository, and then clone it. It is recommended to clone the repository in the /opt/ishare2/gui/ directory. However, you can clone it anywhere you want inside the root's home directory.
+You can clone the repository using the following command:
+
 ```bash
-git clone https://github.com/ishare2-org/ishare2-web-gui.git
-cd ishare2-web-gui
+git clone https://github.com/ishare2-org/ishare2-web-gui.git /opt/ishare2/gui/
+cd /opt/ishare2/gui/
 ```
 
 ### Create a virtual environment
@@ -74,11 +98,15 @@ pip install -r requirements.txt
 python3 main.py
 ```
 
+The application will be available at <http://localhost:5000>
+
 ### Run the application uvicorn
 
 ```bash
 uvicorn main:app --reload
 ```
+
+The application will be available at <http://localhost:8000>
 
 ## Docker container (Experimental)
 
