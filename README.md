@@ -6,6 +6,12 @@ ishare2 GUI is a web interface for the ishare2 project, designed to provide a gr
 
 - [Features](#features)
 - [Screenshots](#screenshots)
+- [Installation](#installation)
+  - [Clone the repository](#clone-the-repository)
+  - [Create a virtual environment](#create-a-virtual-environment)
+  - [Install dependencies](#install-dependencies)
+  - [Run the application](#run-the-application)
+  - [Run the application uvicorn](#run-the-application-uvicorn)
 - [Docker container (Experimental)](#docker-container-experimental)
   - [Build Docker image](#build-docker-image)
   - [Load image](#load-image)
@@ -32,6 +38,40 @@ So if you're looking for a tool that can help you manage and download the images
 
 Other useful chats tho not directly associated:
 [PNetLab Group Chat](https://t.me/pnetlab)
+
+## Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/ishare2-org/ishare2-web-gui.git
+cd ishare2-web-gui
+```
+
+### Create a virtual environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the application
+
+```bash
+python3 main.py
+```
+
+### Run the application uvicorn
+
+```bash
+uvicorn main:app --reload
+```
 
 ## Docker container (Experimental)
 
