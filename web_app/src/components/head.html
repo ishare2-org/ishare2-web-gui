@@ -13,7 +13,7 @@
     <meta property="og:site_name" content="{{ metatags.sitename }}">
     <meta property="og:type" content="{{ metatags.type }}">
     <!-- Stylesheets -->
-    <link href="{{ url_for('styles', path='styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('styles', path='./styles.css') }}" rel="stylesheet">
     <!-- Fontawesome for icons -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap -->
@@ -28,6 +28,6 @@
     <script defer src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script defer src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
     <!-- custom scripts -->
-    <script defer src="{{ url_for('scripts', path='app.js') }}"></script>
+    <script defer src="{{ url_for('scripts', path='./app.js') }}"></script>
 
 </head>
