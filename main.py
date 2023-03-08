@@ -88,16 +88,6 @@ async def get_install_ishare2(request: Request):
     return install_ishare2()
 
 
-@app.get("/help", tags=["Help"])
-async def get_help_file(request: Request):
-    data = {
-        "title": "Help - ishare2",
-        "url": get_help_content(),
-    }
-    context = add_context({}, request, data)
-    return templates.TemplateResponse("pages/help.html", context)
-
-
 if __name__ == "__main__":
     config = get_config()
     HOST = config["api"]["host"]
